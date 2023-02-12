@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const applicationSchema = require('./Application');
+const Application = require('./Application');
 
 const userSchema = new Schema(
     {
@@ -20,7 +20,12 @@ const userSchema = new Schema(
             type: String,
             required: true
         },
-        savedApplications: [applicationSchema]
+        applications: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Application'
+            }
+        ]
     },
     {
         toJSON: {

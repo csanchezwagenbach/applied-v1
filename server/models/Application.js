@@ -38,4 +38,6 @@ applicationSchema.virtual('daysEllapsed').get(function () {
     return ((Date.now() - Date.parse(this.date_applied)) / 14400000)
 })
 
-module.exports = applicationSchema;
+const Application = new Model('Application', applicationSchema)
+
+module.exports = Application;
