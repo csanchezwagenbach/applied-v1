@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const resumeSchema = require('./Resume');
 const coverLetterSchema = require('./CoverLetter');
@@ -15,11 +15,11 @@ const applicationSchema = new Schema({
     resume: [resumeSchema],
     cover_letter: [coverLetterSchema],
     notes: {
-        type: Text,
+        type: String,
         required: false
     },
     follow_up: {
-        type: Text,
+        type: String,
         required: false
     },
     date_applied: {
@@ -38,6 +38,6 @@ applicationSchema.virtual('daysEllapsed').get(function () {
     return ((Date.now() - Date.parse(this.date_applied)) / 14400000)
 })
 
-const Application = new Model('Application', applicationSchema)
+const Application = model('Application', applicationSchema)
 
 module.exports = Application;
