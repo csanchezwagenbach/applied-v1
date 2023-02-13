@@ -12,14 +12,14 @@ export const LOGIN_USER = gql`
 `;
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
-      token
-      user {
-        _id
-        username
-      }
+  addUser(username: $username, email: $email, password: $password) {
+    token
+    user {
+      _id
+      username
     }
   }
+}
 `;
 export const ADD_APPLICATION = gql`
   mutation addApplication($job_title: String!, $lead_source: String!, $date_applied: String!) {
