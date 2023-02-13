@@ -28,7 +28,7 @@ const AppNavbar = () => {
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
 
-            <Nav.Link className="appliednavtext" as={Link} to='/home'>
+            <Nav.Link className="appliednavtext" as={Link} to='/create'>
                 Create App
               </Nav.Link>
 
