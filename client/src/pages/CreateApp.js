@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import {ControlLabel, HelpBlock, DatePicker} from "react-datepicker";
 import {
   Jumbotron,
   Container,
@@ -80,6 +79,7 @@ const [appFormData, setAppFormData] = useState({
           }
         }
       )
+      myWidget.open();
   }
 const uploadCoverLetter =(e)=>{
   e.preventDefault()
@@ -93,6 +93,7 @@ const uploadCoverLetter =(e)=>{
           }
         }
       )
+      myWidget.open();
   }
 
 
