@@ -11,7 +11,9 @@ const typeDefs = gql`
     type Application {
         _id: ID!
         job_title: String!
+        company_name: String!
         lead_source: String!
+        description: String!
         resume: Resume
         cover_letter: CoverLetter
         notes: String
@@ -51,7 +53,7 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addApplication(job_title: String!, lead_source: String!, date_applied: String!): Application
+    addApplication(job_title: String!, company_name: String!, lead_source: String!, description: String!, date_applied: String!): Application
     deleteApplication(_id: ID!): Application
 }
 `;
