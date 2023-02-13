@@ -8,9 +8,17 @@ const applicationSchema = new Schema({
         type: String,
         required: true
     },
+    company_name: {
+        type: String,
+        required: true
+    },
     lead_source: {
         type: String,
         required: true 
+    },
+    description: {
+        type: String,
+        required: true
     },
     resume: [resumeSchema],
     cover_letter: [coverLetterSchema],

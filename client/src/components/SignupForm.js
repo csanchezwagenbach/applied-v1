@@ -35,7 +35,7 @@ const SignupForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log("Here we are now, guvnuh")
     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -128,6 +128,7 @@ const SignupForm = () => {
           }
           type="submit"
           variant="success"
+          onClick={handleFormSubmit}
         >
           Submit
         </Button>

@@ -42,11 +42,13 @@ const resolvers = {
       
             return { token, user };
           },
-          addApplication: async (parent, { job_title, lead_source, date_applied }, context) => {
+          addApplication: async (parent, { job_title, company_name, lead_source, description, date_applied }, context) => {
             if (context.user) {
                 const application = await Application.create({
                     job_title,
+                    company_name,
                     lead_source,
+                    description,
                     date_applied
                 });
 
