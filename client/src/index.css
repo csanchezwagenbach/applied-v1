@@ -1,13 +1,108 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#root {
+  background-color: rgba(4, 0, 1, 0.947) !important; 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+body {
+  font-family: 'Exo', sans-serif;
+  background-color: black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Exo', sans-serif;
+  font-weight: 500;
+}
+
+.small {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.appliedthemecolor {
+  background-color: rgba(4, 0, 1, 0.947);
+}
+
+.applieddashheader {
+  font-family: 'Exo', sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+}
+
+.viewingsaved {
+  font-family: 'Exo', sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  color: white !important;
+}
+
+.appliednavcolor {
+  background-color: rgba(4, 0, 1, 0.947);
+  color: white !important;
+}
+
+.appliednavtext {
+  color: white !important;
+}
+
+.cardlogo {
+  max-width: 100% !important;
+}
+
+.thecards {
+  background-color: black !important;
+}
+
+.searchbox {
+  background-color: black !important;
+}
+
+.jobtitle {
+  color: azure !important;
+}
+
+.jobtext {
+  color: azure !important;
+  font-size: 12px !important;
+}
+
+.small {
+  color: azure !important;
+}
+
+.welcometo {
+  color: aqua;
+  font-size: 62px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.slogan {
+  color: white;
+  font-size: 32px;
+  font-weight: 100;
+}
+
+.getstarted {
+  color:white;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  margin-top: 30px;
+
+}
+
+.welcomecontainer {
+  text-align: center;
+  margin-top: 90px;
+}
+
+.stick {
+  position: relative;
+  top: -25px;
 }
