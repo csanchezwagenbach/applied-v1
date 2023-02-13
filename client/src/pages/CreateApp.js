@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DatePicker from "react-datepicker";
+import {ControlLabel, HelpBlock, DatePicker} from "react-datepicker";
 import {
   Jumbotron,
   Container,
@@ -9,6 +9,7 @@ import {
   Card,
   CardColumns,
   Row,
+  
 } from "react-bootstrap";
 
 import { useMutation } from "@apollo/client";
@@ -67,50 +68,55 @@ const [appFormData, setAppFormData] = useState({
       })
   };
 
-
-
-
-
-
-    const [image, setImage ] = useState("");
-    const [ url, setUrl ] = useState("");
-
-    const uploadImage = () => {
-    const data = new FormData()
-    data.append("file", image)
-    data.append("upload_preset", "u5n4cgbf")
-    fetch("  https://api.cloudinary.com/v1_1/di629rovn/image/upload",{
-    method:"post",
-    body: data
-    })
-    .then(resp => resp.json())
-    .then(data => {
-    setUrl(data.url)
-    })
-    .catch(err => console.log(err))
-    }
-
-   
-    var App = React.createClass({
-      getInitialState: function(){
-        var value = new Date().toISOString();
-        return {
-          value: value
+  const uploadResume =(e)=>{
+    e.preventDefault()
+    var myWidget = window.cloudinary.createUploadWidget({
+        cloudName: 'di629rovn', 
+        uploadPreset: 'u5n4cgbf'}, (error, result) => { 
+          if (!error && result && result.event === "success") {
+            
+            setAppFormData({...appFormData, resume:result.info.url})
+            console.log('Done! Here is the image info: ', result.info); 
+          }
         }
-      },
-      handleChange: function(value, formattedValue) {
-        this.setState({
-          value: value, // ISO String, ex: "2016-11-19T12:00:00.000Z"
-          formattedValue: formattedValue // Formatted String, ex: "11/19/2016"
-        });
-      },
-      componentDidUpdate: function(){
-        // Access ISO String and formatted values from the DOM.
-        var hiddenInputElement = document.getElementById("example-datepicker");
-        console.log(hiddenInputElement.value); // ISO String, ex: "2016-11-19T12:00:00.000Z"
-        console.log(hiddenInputElement.getAttribute('data-formattedvalue')) // Formatted String, ex: "11/19/2016"
-      }
-    });
+      )
+  }
+const uploadCoverLetter =(e)=>{
+  e.preventDefault()
+    var myWidget = window.cloudinary.createUploadWidget({
+        cloudName: 'di629rovn', 
+        uploadPreset: 'u5n4cgbf'}, (error, result) => { 
+          if (!error && result && result.event === "success") {
+            
+            setAppFormData({...appFormData, cover_letter:result.info.url})
+            console.log('Done! Here is the image info: ', result.info); 
+          }
+        }
+      )
+  }
+
+
+
+
+    // const [image, setImage ] = useState("");
+    // const [ url, setUrl ] = useState("");
+
+    // const uploadImage = () => {
+    // const data = new FormData()
+    // data.append("file", image)
+    // data.append("upload_preset", "u5n4cgbf")
+    // fetch("  https://api.cloudinary.com/v1_1/di629rovn/image/upload",{
+    // method:"post",
+    // body: data
+    // })
+    // .then(resp => resp.json())
+    // .then(data => {
+    // setUrl(data.url)
+    // })
+    // .catch(err => console.log(err))
+    // }
+
+
 
   // create function to handle saving a application to our database
 
@@ -133,17 +139,17 @@ const [appFormData, setAppFormData] = useState({
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label>Date Applied</Form.Label>
-              {/* <Form.Control
-                name="searchInput"
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
+              <Form.Control
+                name="date_applied"
+                value={appFormData.data_applied}
+                onChange={handleInputChange}
                 type="text"
                 size="lg"
                 placeholder="MM/DD/YY"
-              /> */}
-              <ControlLabel>Label</ControlLabel>
+              />
+              {/* <ControlLabel>Label</ControlLabel>
               <DatePicker id="example-datepicker" value={this.state.value} onChange={this.handleChange} />
-              <HelpBlock>Help</HelpBlock>
+              <HelpBlock>Help</HelpBlock> */}
             </Form.Group>
 
             <Form.Group as={Row}>
@@ -197,27 +203,14 @@ const [appFormData, setAppFormData] = useState({
             <Row>
             <Col>
               <Form.Label>Upload Resume</Form.Label>
-              <Form.Control
-                name="resume"
-                value={appFormData.resume}
-                onChange={handleInputChange}
-                type="file"
-                size="lg"
-                placeholder="Resume"
-              />
-              <Button onClick={uploadImage}>Upload</Button>
+              
+              <button id="upload_widget" class="cloudinary-button" onClick={uploadResume}>Upload Resume</button>
             </Col>
             <Col>
               <Form.Label>Upload CV/Cover Letter</Form.Label>
-              <Form.Control
-                name="cover_letter"
-                value={appFormData.cover_letter}
-                onChange={handleInputChange}
-                type="file"
-                size="lg"
-                placeholder="CV"
-              />
-              <Button onClick={uploadImage}>Upload</Button>
+              
+      
+              <button id="upload_widget" class="cloudinary-button" onClick={uploadCoverLetter}>Upload Cover Letter</button>
             </Col>
             </Row>
 
