@@ -9,28 +9,28 @@ import {
   CardColumns,
 } from 'react-bootstrap';
 
-import { useMutation } from '@apollo/client';
-import { SAVE_BOOK } from '../utils/mutations';
-import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
+import { useMutation, useQuery } from '@apollo/client';
+// import { SAVE_BOOK } from '../utils/mutations';
+// import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 
 import Auth from '../utils/auth';
 
 const SearchApps = () => {
   // create state for holding returned google api data
-  const [searchedBooks, setSearchedBooks] = useState([]);
+  const [searchedApps, setSearchedApps] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
 
   // create state to hold saved bookId values
-  const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
+//   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
 
-  const [saveBook, { error }] = useMutation(SAVE_BOOK);
+//   const [saveBook, { error }] = useMutation(SAVE_BOOK);
 
   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
-  useEffect(() => {
-    return () => saveBookIds(savedBookIds);
-  });
+//   useEffect(() => {
+//     return () => saveBookIds(savedBookIds);
+   };
 
   // create method to search for books and set state on form submit
   const handleFormSubmit = async (event) => {
@@ -41,8 +41,8 @@ const SearchApps = () => {
     }
 
     try {
-      const response = await fetch(
-        query(USER)=${searchInput}`
+      const response = await useQuery(
+        query(QUERY_ME)=`${searchInput}`
       );
 
       if (!response.ok) {
@@ -51,43 +51,21 @@ const SearchApps = () => {
 
       const { items } = await response.json();
 
-      const bookData = items.map((book) => ({
-        bookId: book.id,
-        authors: book.volumeInfo.authors || ['No author to display'],
-        title: book.volumeInfo.title,
-        description: book.volumeInfo.description,
-        image: book.volumeInfo.imageLinks?.thumbnail || '',
+      const appData = items.map((application) => ({
+        application: applications.job_title,
+        application: applications.company_name,
+        application: applications.lead_source,
+        application: applications.date_applied,
       }));
 
-      setSearchedBooks(bookData);
+      setSearchedApps(appData);
       setSearchInput('');
     } catch (err) {
       console.error(err);
     }
   };
 
-  // create function to handle saving a book to our database
-  const handleSaveBook = async (bookId) => {
-    // find the book in `searchedBooks` state by the matching id
-    const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
-
-    // get token
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    if (!token) {
-      return false;
-    }
-
-    try {
-      const { data } = await saveBook({
-        variables: { bookData: { ...bookToSave } },
-      });
-      console.log(savedBookIds);
-      setSavedBookIds([...savedBookIds, bookToSave.bookId]);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  
   return (
     <>
       <Jumbotron fluid className="text-light bg-dark searchbox">
@@ -117,38 +95,32 @@ const SearchApps = () => {
 
       <Container>
         <h2>
-          {searchedBooks.length
-            ? `Viewing ${searchedBooks.length} results:`
+          {searchedApps.length
+            ? `Viewing ${searchedApps.length} results:`
             : 'Search for a application to begin'}
         </h2>
         <CardColumns>
-          {searchedBooks.map((book) => {
+          {userData.application?.map((application) => {
             return (
-              <Card key={book.bookId} border="dark">
-                {book.image ? (
-                  <Card.Img
-                    src={book.image}
-                    alt={`The cover for ${book.title}`}
+              <Card className="thecards" key={application._id} style={{ width: '18rem', marginTop: '40px' }} border="light">
+                 
+                  <Card.Img className="cardlogo"
+                  alt="Applied logo"
+                  src={cologosm}
                     variant="top"
                   />
-                ) : null}
+                
                 <Card.Body>
-                  <Card.Title>{book.title}</Card.Title>
-                  <p className="small">Authors: {book.authors}</p>
-                  <Card.Text>{book.description}</Card.Text>
-                  {Auth.loggedIn() && (
-                    <Button
-                      disabled={savedBookIds?.some(
-                        (savedId) => savedId === book.bookId
-                      )}
-                      className="btn-block btn-info"
-                      onClick={() => handleSaveBook(book.bookId)}
-                    >
-                      {savedBookIds?.some((savedId) => savedId === book.bookId)
-                        ? 'Book Already Saved!'
-                        : 'Save This Book!'}
-                    </Button>
-                  )}
+                  <Card.Title className="jobtitle">{application.job_title}</Card.Title>
+                  <p className="small"> {application.company}</p>
+                  <Card.Text className="jobtext">{application.lead_source}</Card.Text>
+                  <Card.Text className="jobtext">{application.date_applied}</Card.Text>
+                  <Button
+                    className="btn-block btn-danger"
+                    // onClick={() => handlePreviewApp(application._id)}
+                  >
+                    View Entire Submission
+                  </Button>
                 </Card.Body>
               </Card>
             );

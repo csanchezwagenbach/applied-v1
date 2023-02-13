@@ -6,8 +6,9 @@ export const QUERY_ME = gql`
       username
       email
       applications {
-       _id
-       job_title
+        _id
+        job_title
+        company_name
         lead_source
         resume
         cover_letter
