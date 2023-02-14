@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import "react-datepicker/dist/react-datepicker.css";
-import { QUERY_ME } from '../utils/queries';
 //import DatePicker from "react-datepicker";
 import {
   Jumbotron,
@@ -66,19 +66,12 @@ const CreateApp = () => {
     } catch (err) {
       console.error(err);
     }
-
-    // setAppFormData({
-    //   job_title: "",
-    //   lead_source: "",
-    //   company_name: "",
-    //   resume: "",
-    //   cover_letter: "",
-    //   notes: "",
-    //   follow_up: "",
-    //   date_applied: "",
-    // });
   };
-
+  const navigate = useNavigate();
+  const navigateToPreview = () => {
+    // 👇️ navigate to /preview
+    navigate('/preview');
+  }
   const uploadResume = (e) => {
     e.preventDefault();
     var myWidget = window.cloudinary.createUploadWidget(
@@ -242,7 +235,7 @@ const CreateApp = () => {
             <Form.Group as={Row} className="mt-3">
               <Col>
                 {/* <Button type="submit" variant="success" size="sm">Save Application</Button> */}
-                <button type="submit" class="spacer-btn" role="button" >Save Application</button>
+                <button type="submit" class="spacer-btn" role="button"  onClick={navigateToPreview}>Save Application</button>
               </Col>
             </Form.Group>
           </Form>

@@ -12,7 +12,7 @@ import Home from './pages/Home';
 import UserDash from './pages/UserDash';
 import Navbar from './components/Navbar';
 import CreateApp from './pages/CreateApp';
-// import UpdateApp from './pages/UpdateApp';
+import UpdateApp from './pages/UpdateApp';
 import PreviewApp from './pages/PreviewApp';
 // import SearchApp from './pages/SearchApp';
 
@@ -66,10 +66,10 @@ function App() {
               element={<CreateApp/>} 
             />
 
-            {/* <Route 
+            <Route 
               path="/update" 
               element={<UpdateApp/>} 
-            />    */}
+            />   
 
             <Route 
               path="/preview" 

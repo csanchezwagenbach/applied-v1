@@ -1,10 +1,15 @@
-// import React, { useState, useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 
 function PreviewApp() {
+   const navigate = useNavigate();
+  const navigateToUpdate = () => {
+    // 👇️ navigate to /preview
+    navigate('/update');
+  }
     return (
       <Card className="prevCard">
         <div className="prevHead"><Card.Header>Saved Application</Card.Header></div>
@@ -68,7 +73,7 @@ Knowledge of different testing methodologies (e.g., White/Gray/Black box testing
             Follow up email here.
           </Card.Text></div>
 
-          <button className="spacer-Btn" type="submit" role="button">Edit Application</button>
+          <button className="spacer-Btn" type="submit" role="button" onClick={navigateToUpdate}>Edit Application</button>
         </Card.Body>
         <Card.Footer className="text-muted">2 days ago</Card.Footer>
       </Card>
