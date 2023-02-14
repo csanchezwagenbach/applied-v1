@@ -32,7 +32,10 @@ const applicationSchema = new Schema({
     },
     date_applied: {
         type: Date,
-        required: true
+        required: true,
+        get: (date) => {
+            if (date) return date.toISOString().split("T")[0];
+        }
     }
     },
     {
@@ -42,8 +45,10 @@ const applicationSchema = new Schema({
     }
 );
 
+
+
 applicationSchema.virtual('daysEllapsed').get(function () {
-    return ((Date.now() - Date.parse(this.date_applied)) / 14400000)
+    return Date.now()
 })
 
 const Application = model('Application', applicationSchema)
