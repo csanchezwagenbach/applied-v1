@@ -32,7 +32,7 @@ const AppNavbar = () => {
                 Create App
               </Nav.Link>
 
-              <Nav.Link className="appliednavtext" as={Link} to='/'>
+              <Nav.Link className="appliednavtext" as={Link} to='/search'>
                 Search
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}

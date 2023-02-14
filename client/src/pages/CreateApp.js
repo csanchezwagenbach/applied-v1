@@ -20,16 +20,17 @@ import Auth from "../utils/auth";
 
 const CreateApp = () => {
   const [addApplication, { error }] = useMutation(ADD_APPLICATION);
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [appFormData, setAppFormData] = useState({
-    job_title: "",
-    lead_source: "",
-    resume: "",
-    cover_letter: "",
-    notes: "",
-    follow_up: "",
-    date_applied: ""
-  });
+
+const [appFormData, setAppFormData] = useState({
+    job_title: '',
+    company_name: '',
+    lead_source: '',
+    resume: '',
+    cover_letter: '',
+    notes: '',
+    follow_up: '',
+    date_applied: ''
+  })
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -103,13 +104,14 @@ console.log(appFormData)
 
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark">
+      <Jumbotron fluid className="text-light appliedthemecolor">
         <Container>
-          <h1>Job Application Information</h1>
-          <Form onClick={handleFormSubmit}>
+          <span class="appinfo">Job Application Information</span>
+          <Form onSubmit={handleFormSubmit}>
+
             <Form.Group as={Row}>
               <Form.Label>Job Title</Form.Label>
-              <Form.Control
+              <Form.Control id="transp"
                 name="job_title"
                 value={appFormData.job_title}
                 onChange={handleInputChange}
@@ -117,19 +119,34 @@ console.log(appFormData)
                 size="lg"
                 placeholder="Job Title"
               />
+              </Form.Group>
+
+              <Form.Group as={Row}>
               <Form.Label>Company Name</Form.Label>
-              <Form.Control
+              <Form.Control  id="transp"
                 name="company_name"
-                value={appFormData.company_name}
+                value={appFormData.job_title}
+                onChange={handleInputChange}
+                type="text"
+                size="lg"
+                placeholder="Name of the Company"
+              />
+              </Form.Group>
+
+            <Form.Group as={Row}>
+              <Form.Label>Date Applied</Form.Label>
+              <Form.Control  id="transp"
+                name="date_applied"
+                value={appFormData.data_applied}
                 onChange={handleInputChange}
                 type="text"
                 size="lg"
                 placeholder="Company Name"
               />
-            </Form.Group>
+              </Form.Group>
+
             <Form.Group as={Row}>
               <Form.Label>Date Applied</Form.Label>
-              
                 <DatePicker
                 name="date_applied"
                 value={appFormData.date_applied}
@@ -141,7 +158,7 @@ console.log(appFormData)
 
             <Form.Group as={Row}>
               <Form.Label>Job Lead</Form.Label>
-              <Form.Control
+              <Form.Control  id="transp"
                 name="lead_source"
                 value={appFormData.lead_source}
                 onChange={handleInputChange}
@@ -149,12 +166,13 @@ console.log(appFormData)
                 size="lg"
                 placeholder="Where did you find the job?"
               />
-            </Form.Group>
+              </Form.Group>
+            
             <Form.Group as={Row}>
               <Form.Label>Job Description</Form.Label>
-              <Form.Control
-                as="textarea"
-                style={{ height: "150px" }}
+              <Form.Control  id="transp" 
+                as= "textarea"
+                style={{height: '150px'}}
                 name="description"
                 value={appFormData.description}
                 onChange={handleInputChange}
@@ -163,60 +181,57 @@ console.log(appFormData)
                 placeholder="Summarize job description."
                 aria-describedby="passwordHelpBlock"
               />
+              </Form.Group>
+
               <Form.Text id="passwordHelpBlock" muted>
                 We suggest copying the job description from site that job was
                 posted, since they tend to get taken down.
-              </Form.Text>
-            </Form.Group>
+              </Form.Text><br></br>
+
+            
 
             <Form.Group as={Row}>
               <Form.Label>Notes</Form.Label>
-              <Form.Control
-                as="textarea"
-                style={{ height: "150px" }}
+              <Form.Control id="transp"
+              as= "textarea"
+              style={{height: '150px'}}
                 name="notes"
                 value={appFormData.notes}
                 onChange={handleInputChange}
                 type="text"
                 size="lg"
-                placeholder="Summarize job description."
+                placeholder="Important things to remember."
                 aria-describedby="passwordHelpBlock"
               />
+              </Form.Group>
+
               <Form.Text id="passwordHelpBlock" muted>
-                Add any notes such as follow up emails, recruiters you spoke to
+                Add any notes such as names, interview details, follow ups, recruiters you spoke to
                 etc...
-              </Form.Text>
-            </Form.Group>
+              </Form.Text><br></br>
+            
+
             <Row>
-              <Col>
-                <Form.Label>Upload Resume</Form.Label>
+              <Col></Col>
 
-                <button
-                  id="upload_widget"
-                  class="cloudinary-button"
-                  onClick={uploadResume}
-                >
-                  Upload Resume
-                </button>
-              </Col>
-              <Col>
-                <Form.Label>Upload CV/Cover Letter</Form.Label>
 
-                <button
-                  id="upload_widget"
-                  class="cloudinary-button"
-                  onClick={uploadCoverLetter}
-                >
-                  Upload Cover Letter
-                </button>
-              </Col>
-            </Row>
+            <Col  class="cntrbtns">
+              {/* <Form.Label>Upload Resume</Form.Label> */}
+              {/* <button id="upload_widget" class="button-85" role="button"  onClick={uploadResume}>Upload Resume</button> */}
+              <button id="upload_widget" class="space-btn" onClick={uploadResume}>Upload Resume</button>
+            </Col>
+
+            <Col  class="cntrbtns">
+              {/* <Form.Label>Upload CV/Cover Letter</Form.Label> */}
+              {/* <button id="upload_widget" class="button-85" role="button" onClick={uploadCoverLetter}>Upload Cover Letter </button> */}
+              <button id="upload_widget" class="space-btn" onClick={uploadResume}>Upload CV</button>
+            </Col>
+            </Row><br></br>
 
             <Form.Group as={Row} className="mt-3">
               <Col>
-                <Button as={Col} type="submit" variant="success" size="lg">
-                  Submit
-                </Button>
+                {/* <Button type="submit" variant="success" size="sm">Save Application</Button> */}
+                <button type="submit" class="space-btn" role="button" >Save Application</button>
               </Col>
             </Form.Group>
           </Form>

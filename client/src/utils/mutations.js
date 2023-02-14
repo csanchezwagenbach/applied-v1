@@ -30,6 +30,7 @@ export const ADD_APPLICATION = gql`
       addApplication {
         _id
         job_title
+        company_name
         lead_source
         date_applied
       }

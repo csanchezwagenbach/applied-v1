@@ -34,6 +34,27 @@ h6 {
   font-size: 40px;
 }
 
+.appinfo {
+  font-family: 'Exo', sans-serif;
+  font-weight: 100;
+  font-size: 50px;
+  color: aqua;
+  
+}
+
+/* .cntrbtns {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  align-content: center !important;
+  margin-left: 40px;
+} */
+
+#transp {
+  background: rgba(0, 0, 0, 0.261);
+}
+
 .viewingsaved {
   font-family: 'Exo', sans-serif;
   font-weight: 500;
@@ -105,4 +126,313 @@ h6 {
 .stick {
   position: relative;
   top: -25px;
+}
+
+/* <!-- HTML !-->
+<button class="button-85" role="button">Button 85</button> */
+
+/* CSS */
+/* .button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+} */
+
+/* CSS */
+/* .button-86 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: black;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-86:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-86:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #b51e03;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+} */
+
+
+
+/*new better*/
+
+@import url(https://fonts.googleapis.com/css?family=Electrolize);
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: black;
+}
+
+.space-btn {
+  position: relative;
+  font-family: "Electrolize", sans-serif;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  line-height: 1;
+  color: #02d9ff;
+  margin: 0;
+  padding: 1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.space-btn:hover {
+  color: #02d9ff;
+}
+.space-btn:focus {
+  color: #02d9ff;
+  outline: none;
+}
+.space-btn:active {
+  color: #02d9ff;
+}
+.space-btn:before, .space-btn:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+}
+.space-btn:before {
+  top: 0;
+  left: 0;
+  box-shadow: inset 1px 1px 0 0 #02d9ff;
+}
+.space-btn:after {
+  right: 0;
+  bottom: 0;
+  box-shadow: inset -1px -1px 0 0 #025bff;
+}
+
+.space-btn:hover:before {
+  -webkit-animation: hoverShadowBefore 1s forwards;
+          animation: hoverShadowBefore 1s forwards;
+}
+.space-btn:hover:after {
+  -webkit-animation: hoverShadowAfter 1s forwards;
+          animation: hoverShadowAfter 1s forwards;
+}
+
+@-webkit-keyframes hoverShadowBefore {
+  0% {
+    width: 100%;
+    height: 1px;
+    top: 0;
+    left: 0;
+  }
+  33% {
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  66% {
+    width: 1px;
+    height: 1px;
+    top: calc(100% - 1px);
+    left: 0;
+  }
+  100% {
+    width: 100%;
+    height: 1px;
+    top: calc(100% - 1px);
+    left: 0;
+  }
+}
+
+@keyframes hoverShadowBefore {
+  0% {
+    width: 100%;
+    height: 1px;
+    top: 0;
+    left: 0;
+  }
+  33% {
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  66% {
+    width: 1px;
+    height: 1px;
+    top: calc(100% - 1px);
+    left: 0;
+  }
+  100% {
+    width: 100%;
+    height: 1px;
+    top: calc(100% - 1px);
+    left: 0;
+  }
+}
+@-webkit-keyframes hoverShadowAfter {
+  0% {
+    width: 100%;
+    height: 1px;
+  }
+  33% {
+    width: 1px;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+  }
+  66% {
+    width: 1px;
+    height: 1px;
+    bottom: calc(100% - 1px);
+    right: 0;
+  }
+  100% {
+    width: 100%;
+    height: 1px;
+    bottom: calc(100% - 1px);
+    right: 0;
+  }
+}
+@keyframes hoverShadowAfter {
+  0% {
+    width: 100%;
+    height: 1px;
+  }
+  33% {
+    width: 1px;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+  }
+  66% {
+    width: 1px;
+    height: 1px;
+    bottom: calc(100% - 1px);
+    right: 0;
+  }
+  100% {
+    width: 100%;
+    height: 1px;
+    bottom: calc(100% - 1px);
+    right: 0;
+  }
 }
