@@ -3,6 +3,8 @@ import { useQuery } from '@apollo/client';
 import "react-datepicker/dist/react-datepicker.css";
 import { QUERY_ME } from '../utils/queries';
 //import DatePicker from "react-datepicker";
+8
+import {useNavigate} from 'react-router-dom'
 import {
   Jumbotron,
   Container,
@@ -78,6 +80,11 @@ const CreateApp = () => {
     //   date_applied: "",
     // });
   };
+  const navigate = useNavigate();
+  const navigateToPreview = () => {
+    // :point_down:️ navigate to /preview
+    navigate('/preview');
+
 
   const uploadResume = (e) => {
     e.preventDefault();
@@ -235,14 +242,14 @@ const CreateApp = () => {
               <Col class="cntrbtns">
                 {/* <Form.Label>Upload CV/Cover Letter</Form.Label> */}
                 {/* <button id="upload_widget" class="button-85" role="button" onClick={uploadCoverLetter}>Upload Cover Letter </button> */}
-                <button id="upload_widget" class="space-btn" onClick={uploadCoverLetter}>Upload CV</button>
+                <button id="upload_widget" class="space-btn" onClick={uploadCoverLetter}>Upload Cover</button>
               </Col>
             </Row><br></br>
 
             <Form.Group as={Row} className="mt-3">
               <Col>
                 {/* <Button type="submit" variant="success" size="sm">Save Application</Button> */}
-                <button type="submit" class="spacer-btn" role="button" >Save Application</button>
+                <button type="submit" class="spacer-btn" role="button" onClick={navigateToPreview}>Save Application</button>
               </Col>
             </Form.Group>
           </Form>
