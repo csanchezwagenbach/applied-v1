@@ -32,13 +32,13 @@ const AppNavbar = () => {
                 Create App
               </Nav.Link>
 
-              <Nav.Link className="appliednavtext" as={Link} to='/'>
+              <Nav.Link className="appliednavtext" as={Link} to='/search'>
                 Search
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link className="appliednavtext" as={Link} to='/saved'>
+                  <Nav.Link className="appliednavtext" as={Link} to='/userdash'>
                     Dashboard
                   </Nav.Link>
                   <Nav.Link className="appliednavtext" onClick={Auth.logout}>Logout</Nav.Link>
