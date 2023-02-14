@@ -28,19 +28,23 @@ const AppNavbar = () => {
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
 
-            <Nav.Link className="appliednavtext" as={Link} to='/create'>
+            
+
+              {/* if user is logged in show dashboard, search, create app and logout */}
+              {Auth.loggedIn() ? (
+                <>
+                  <Nav.Link className="appliednavtext" as={Link} to='/userdash'>
+                    Dashboard
+                  </Nav.Link>
+
+                  <Nav.Link className="appliednavtext" as={Link} to='/create'>
                 Create App
               </Nav.Link>
 
               <Nav.Link className="appliednavtext" as={Link} to='/search'>
                 Search
               </Nav.Link>
-              {/* if user is logged in show saved books and logout */}
-              {Auth.loggedIn() ? (
-                <>
-                  <Nav.Link className="appliednavtext" as={Link} to='/userdash'>
-                    Dashboard
-                  </Nav.Link>
+
                   <Nav.Link className="appliednavtext" onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
@@ -55,7 +59,9 @@ const AppNavbar = () => {
         size='lg'
         show={showModal}
         onHide={() => setShowModal(false)}
-        aria-labelledby='signup-modal'>
+        aria-labelledby='signup-modal'
+        className="primaryModal"
+        closeVariant="white">
         {/* tab container to do either signup or login component */}
         <Tab.Container defaultActiveKey='login'>
           <Modal.Header closeButton>

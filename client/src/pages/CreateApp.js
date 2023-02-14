@@ -242,7 +242,7 @@ const CreateApp = () => {
             <Form.Group as={Row} className="mt-3">
               <Col>
                 {/* <Button type="submit" variant="success" size="sm">Save Application</Button> */}
-                <button type="submit" class="space-btn" role="button" >Save Application</button>
+                <button type="submit" class="spacer-btn" role="button" >Save Application</button>
               </Col>
             </Form.Group>
           </Form>

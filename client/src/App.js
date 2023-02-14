@@ -13,7 +13,7 @@ import UserDash from './pages/UserDash';
 import Navbar from './components/Navbar';
 import CreateApp from './pages/CreateApp';
 // import UpdateApp from './pages/UpdateApp';
-// import PreviewApp from './pages/PreviewApp';
+import PreviewApp from './pages/PreviewApp';
 // import SearchApp from './pages/SearchApp';
 
 // Construct our main GraphQL API endpoint
@@ -71,10 +71,10 @@ function App() {
               element={<UpdateApp/>} 
             />    */}
 
-            {/* <Route 
+            <Route 
               path="/preview" 
               element={<PreviewApp/>} 
-            />  */}
+            /> 
 
             <Route 
               path='*' 

@@ -44,7 +44,7 @@ const UserDash = () => {
             ? `Viewing ${userData.applications.length} saved ${
                 userData.applications.length === 1 ? 'Application' : 'Job Applications'
               }:`
-            : 'You have no saved applications!'}
+            : <p><span className="quote">You have no saved applications!</span><br></br><span className="quotes">'Remember, you miss 100% of the shots you don't take.'</span><br></br><span className="quotess">— Michael Scott, Dunder Mifflin; actually Wayne Gretzky</span></p>}
         </span>
         <CardColumns>
           {userData.applications?.map((application) => {
