@@ -22,20 +22,12 @@ export const ADD_USER = gql`
 }
 `;
 export const ADD_APPLICATION = gql`
-  mutation addApplication($job_title: String!, $lead_source: String!, $date_applied: String!) {
-    addApplication(job_title: $job_title, lead_source: $lead_source, date_applied:$date_applied) {
-      _id
-      username
-      email
-      addApplication {
-        _id
-        job_title
-        company_name
-        lead_source
-        date_applied
-      }
-    }
+mutation addApplication($jobTitle: String!, $company_name: String!, $leadSource: String!, $description: String!, $dateApplied: String!) {
+  addApplication(job_title: $jobTitle, company_name: $company_name, lead_source: $leadSource, description: $description, date_applied: $dateApplied) {
+    job_title
+    company_name
   }
+}
 `;
 export const DELETE_APP = gql`
   mutation deleteApplication($_id: ID!) {

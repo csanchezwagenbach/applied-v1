@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useQuery } from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import DatePicker from "react-datepicker";
+import { QUERY_ME } from '../utils/queries';
+// import DatePicker from "react-datepicker";
 import {
   Jumbotron,
   Container,
@@ -20,7 +21,7 @@ import Auth from "../utils/auth";
 
 const CreateApp = () => {
   const [addApplication, { error }] = useMutation(ADD_APPLICATION);
-
+const [selectedDate, setSelectedDate] = useState(null)
 const [appFormData, setAppFormData] = useState({
     job_title: '',
     company_name: '',
@@ -38,6 +39,14 @@ const [appFormData, setAppFormData] = useState({
   };
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+  // create function that accepts the book's mongo _id value as param and deletes the book from the database
+
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
 
     // check if form has everything (as per react-bootstrap docs)
     // const form = event.currentTarget;
@@ -125,7 +134,7 @@ console.log(appFormData)
               <Form.Label>Company Name</Form.Label>
               <Form.Control  id="transp"
                 name="company_name"
-                value={appFormData.job_title}
+                value={appFormData.company_name}
                 onChange={handleInputChange}
                 type="text"
                 size="lg"
@@ -141,11 +150,11 @@ console.log(appFormData)
                 onChange={handleInputChange}
                 type="text"
                 size="lg"
-                placeholder="Company Name"
+                placeholder="Date Applied"
               />
               </Form.Group>
 
-            <Form.Group as={Row}>
+            {/* <Form.Group as={Row}>
               <Form.Label>Date Applied</Form.Label>
                 <DatePicker
                 name="date_applied"
@@ -154,7 +163,7 @@ console.log(appFormData)
                   onChange={(date) => setSelectedDate(date)}
                   dateFormat="MM/dd/yy"
                 />
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group as={Row}>
               <Form.Label>Job Lead</Form.Label>
@@ -188,7 +197,6 @@ console.log(appFormData)
                 posted, since they tend to get taken down.
               </Form.Text><br></br>
 
-            
 
             <Form.Group as={Row}>
               <Form.Label>Notes</Form.Label>
@@ -224,7 +232,7 @@ console.log(appFormData)
             <Col  class="cntrbtns">
               {/* <Form.Label>Upload CV/Cover Letter</Form.Label> */}
               {/* <button id="upload_widget" class="button-85" role="button" onClick={uploadCoverLetter}>Upload Cover Letter </button> */}
-              <button id="upload_widget" class="space-btn" onClick={uploadResume}>Upload CV</button>
+              <button id="upload_widget" class="space-btn" onClick={uploadCoverLetter}>Upload CV</button>
             </Col>
             </Row><br></br>
 
