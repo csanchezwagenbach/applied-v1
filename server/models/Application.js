@@ -14,7 +14,7 @@ const applicationSchema = new Schema({
     },
     lead_source: {
         type: String,
-        required: true 
+        required: true
     },
     description: {
         type: String,
@@ -37,10 +37,11 @@ const applicationSchema = new Schema({
             if (date) return date.toISOString().split("T")[0];
         }
     }
-    },
+},
     {
         toJSON: {
-            virtuals: true
+            virtuals: true,
+            getters: true
         }
     }
 );
@@ -48,7 +49,7 @@ const applicationSchema = new Schema({
 
 
 applicationSchema.virtual('daysEllapsed').get(function () {
-    return Date.now()
+    return Date.now() - new Date(this.date_applied)
 })
 
 const Application = model('Application', applicationSchema)
