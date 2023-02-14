@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Jumbotron,
   Container,
@@ -19,10 +19,12 @@ import cologosm from '../assets/applied-logo-sm.png';
 
 const UserDash = () => {
   const { loading, data } = useQuery(QUERY_ME);
-
+  
 
   const userData = data?.me || {};
-
+  useEffect(()=> {
+    console.log(userData)
+  }, [userData])
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   
   if (loading) {
@@ -45,7 +47,7 @@ const UserDash = () => {
             : 'You have no saved applications!'}
         </span>
         <CardColumns>
-          {userData.application?.map((application) => {
+          {userData.applications?.map((application) => {
             return (
               <Card className="thecards" key={application._id} style={{ width: '18rem', marginTop: '40px' }} border="light">
                  
@@ -57,7 +59,7 @@ const UserDash = () => {
                 
                 <Card.Body>
                   <Card.Title className="jobtitle">{application.job_title}</Card.Title>
-                  <p className="small"> {application.company}</p>
+                  <p className="small"> {application.company_name}</p>
                   <Card.Text className="jobtext">{application.lead_source}</Card.Text>
                   <Card.Text className="jobtext">{application.date_applied}</Card.Text>
                   <Button
