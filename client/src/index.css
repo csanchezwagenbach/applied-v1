@@ -34,13 +34,101 @@ h6 {
   font-size: 40px;
 }
 
+.quote {
+  font-family: 'Exo', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.quotes {
+  font-family: 'Exo', sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  color: aqua;
+}
+
+.quotess {
+  font-family: 'Exo', sans-serif;
+  font-weight: 100;
+  font-size: 17px;
+  font-style: italic;
+}
+
 .appinfo {
   font-family: 'Exo', sans-serif;
   font-weight: 100;
   font-size: 50px;
   color: aqua;
-  
 }
+
+.primaryModal .modal-content {
+  background-color: rgb(33, 32, 38);
+  color:cyan;
+  border-color: aqua;
+}
+
+.prevHead {
+  font-family: 'Exo', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+}
+
+.prevCompany {
+  font-family: 'Exo', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.prevTitle {
+  font-family: 'Exo', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.prevLead {
+  font-family: 'Exo', sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+}
+
+.prevSummary {
+  font-family: 'Exo', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.prevNotes {
+  font-family: 'Exo', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 20px;;
+}
+
+.prevDate {
+  font-family: 'Exo', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 20px;;
+}
+
+.prevFollow {
+  font-family: 'Exo', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.prevCard {
+ color: white;
+ background-color: black !important;
+ margin-left: 60px;
+}
+
+
 
 /* .cntrbtns {
   display: flex !important;
@@ -276,13 +364,13 @@ h6 {
   box-sizing: border-box;
 }
 
-body {
+/* body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-color: black;
-}
+} */
 
 .space-btn {
   position: relative;
@@ -334,6 +422,63 @@ body {
   -webkit-animation: hoverShadowAfter 1s forwards;
           animation: hoverShadowAfter 1s forwards;
 }
+
+
+
+.spacer-btn {
+  position: relative;
+  font-family: "Electrolize", sans-serif;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  line-height: 1;
+  color: #0aff02;
+  margin: 0;
+  padding: 1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.spacer-btn:hover {
+  color: #0aff02;
+}
+.spacer-btn:focus {
+  color: #0aff02;
+  outline: none;
+}
+.spacer-btn:active {
+  color: #0aff02;
+}
+.spacer-btn:before, .spacer-btn:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+}
+.spacer-btn:before {
+  top: 0;
+  left: 0;
+  box-shadow: inset 1px 1px 0 0 #0aff02;
+}
+.spacer-btn:after {
+  right: 0;
+  bottom: 0;
+  box-shadow: inset -1px -1px 0 0 #054d09;
+}
+
+.spacer-btn:hover:before {
+  -webkit-animation: hoverShadowBefore 1s forwards;
+          animation: hoverShadowBefore 1s forwards;
+}
+.spacer-btn:hover:after {
+  -webkit-animation: hoverShadowAfter 1s forwards;
+          animation: hoverShadowAfter 1s forwards;
+}
+
+
+
+
 
 @-webkit-keyframes hoverShadowBefore {
   0% {
