@@ -19,6 +19,7 @@ const typeDefs = gql`
         notes: String
         follow_up: String
         date_applied: String!
+        daysEllapsed: String
     }
 
 type Resume {
@@ -47,7 +48,7 @@ input CoverLetterInput {
 type Query {
     me: User
     applications(username: String): [Application]
-    application(applicationID: ID!): Application
+    application(applicationId: ID!): Application
 }
 
 type Mutation {
