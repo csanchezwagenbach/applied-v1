@@ -1,8 +1,7 @@
-// import React, { useState, useEffect } from 'react';
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-// import {useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 
@@ -11,23 +10,23 @@ import { useQuery } from '@apollo/client';
 import { FIND_APP } from '../utils/queries';
 
 const PreviewApp = () => {
-  //url is /update/:applicationId
-  const { applicationId } = useParams();
-
-  const { loading, data } = useQuery(FIND_APP, {
-    variables: { applicationId: applicationId },
-  });
+  const {applicationId} = useParams();
+  const navigate = useNavigate();
+    const { loading, data } = useQuery(FIND_APP, {
+        variables: { applicationId: applicationId },
+    });
 
   const application = data?.application || {};
   useEffect(() => {
     console.log(data);
-  }, [data])
-  console.log(applicationId)
-  // const navigate = useNavigate();
-  //   const navigateToUpdate = () => {
-  //     // :point_down:️ navigate to /preview
-  //     navigate('/update');
-  //   }
+}, [data])
+
+console.log(applicationId)
+
+  const navigateToUpdate = () => {
+    // :point_down:️ navigate to /preview
+    navigate(`/update/${application._id}`);
+  }
 
 
     return (
@@ -66,14 +65,7 @@ const PreviewApp = () => {
           {application.follow_up}
         </Card.Text></div>
 
-
-
-          
-
-
-
-
-          <button className="space-btn limegreen"  role="button">Edit Application</button>
+          <button className="space-btn limegreen"   role="button" onClick={navigateToUpdate}>Edit Application</button>
         </Card.Body>
         <Card.Footer className="text-muted">2 days ago</Card.Footer>
       </Card>

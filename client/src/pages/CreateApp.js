@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import "react-datepicker/dist/react-datepicker.css";
-import { QUERY_ME } from '../utils/queries';
 //import DatePicker from "react-datepicker";
 
-import {useNavigate} from 'react-router-dom'
 import {
   Jumbotron,
   Container,
@@ -70,17 +69,6 @@ const CreateApp = () => {
     } catch (err) {
       console.error(err);
     }
-    
-    // setAppFormData({
-    //   job_title: "",
-    //   lead_source: "",
-    //   company_name: "",
-    //   resume: "",
-    //   cover_letter: "",
-    //   notes: "",
-    //   follow_up: "",
-    //   date_applied: "",
-    // });
   };
   
 
@@ -202,11 +190,30 @@ const CreateApp = () => {
                 placeholder="Summarize job description."
                 aria-describedby="passwordHelpBlock"
               />
-            </Form.Group>
 
             <Form.Text id="passwordHelpBlock" muted>
               We suggest copying the job description from site that job was
               posted, since they tend to get taken down.
+            </Form.Text><br></br>
+            </Form.Group>
+
+            <Form.Group as={Row}>
+              <Form.Label>Follow Up</Form.Label>
+              <Form.Control id="transp"
+                as="textarea"
+                style={{ height: '150px' }}
+                name="follow_up"
+                value={appFormData.follow_up}
+                onChange={handleInputChange}
+                type="text"
+                size="lg"
+                placeholder="Follow Up"
+                aria-describedby="passwordHelpBlock"
+              />
+            </Form.Group>
+
+            <Form.Text id="passwordHelpBlock" muted>
+              We suggest adding any follow up emails received.
             </Form.Text><br></br>
 
 
