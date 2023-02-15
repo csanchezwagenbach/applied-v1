@@ -33,7 +33,7 @@ const AppNavbar = () => {
               {/* if user is logged in show dashboard, search, create app and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link className="appliednavtext" as={Link} to='/userdash'>
+                  <Nav.Link reloadDocument className="appliednavtext" as={Link} to='/userdash'>
                     Dashboard
                   </Nav.Link>
 

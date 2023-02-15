@@ -4,6 +4,7 @@ export const QUERY_ME = gql`
   me {
     username
     applications {
+      _id
       job_title
       company_name
       lead_source
@@ -12,3 +13,26 @@ export const QUERY_ME = gql`
   }
 }
 `;
+
+export const FIND_APP = gql
+`query application($applicationId: ID!) {
+  application(applicationId: $applicationId) {
+    job_title
+    _id
+    company_name
+    lead_source
+    description
+    resume {
+      _id
+      url
+    }
+    cover_letter {
+      _id
+      url
+    }
+    notes
+    follow_up
+    date_applied
+    daysEllapsed
+  }
+}`
