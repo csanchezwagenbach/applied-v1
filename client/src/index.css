@@ -79,42 +79,52 @@ h6 {
   font-weight: 700;
   font-size: 40px;
 }
+.prevCompanyLabel {
+font-family: 'Michroma', sans-serif;
+font-size: 15px;
+color: aqua;
+}
+
+
 
 .prevTitle {
   font-family: 'Exo', sans-serif;
   font-weight: 700;
-  font-size: 40px;
+  font-size: 35px;
+  margin-bottom: 30px;
 }
 
 .prevLead {
   font-family: 'Exo', sans-serif;
   font-weight: 300;
-  font-size: 40px;
+  font-size: 25px;
+  margin-bottom: 40px;
 }
 
 .prevSummary {
+  white-space: pre-wrap;
   font-family: 'Exo', sans-serif;
   font-weight: 300;
   font-size: 14px;
+  margin-bottom: 40px;
 }
 
 .prevNotes {
   font-family: 'Exo', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  font-style: italic;
-  margin-top: 20px;;
+  margin-bottom: 40px;
 }
 
 .prevDate {
   font-family: 'Exo', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  font-style: italic;
-  margin-top: 20px;;
+  margin-bottom: 40px;
 }
 
 .prevFollow {
+  white-space: pre;
   font-family: 'Exo', sans-serif;
   font-weight: 400;
   font-size: 14px;
