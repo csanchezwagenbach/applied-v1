@@ -16,7 +16,6 @@ import {
 
 import { useMutation } from "@apollo/client";
 import { ADD_APPLICATION } from "../utils/mutations";
-
 import Auth from "../utils/auth";
 
 const UpdateApp = () => {
@@ -31,21 +30,7 @@ const UpdateApp = () => {
   };
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // create function that accepts the book's mongo _id value as param and deletes the book from the database
 
-    // get token
-    // const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    // if (!token) {
-    //   return false;
-    // }
-
-    // check if form has everything (as per react-bootstrap docs)
-    // const form = event.currentTarget;
-    // if (form.checkValidity() === false) {
-    //   event.preventDefault();
-    //   event.stopPropagation();
-    // }
     console.log(appFormData)
     try {
       const { data } = await addApplication({

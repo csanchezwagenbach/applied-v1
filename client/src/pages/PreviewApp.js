@@ -1,8 +1,7 @@
-// import React, { useState, useEffect } from 'react';
 import React, {useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-// import {useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 
@@ -13,6 +12,7 @@ import { FIND_APP } from '../utils/queries';
 const PreviewApp = () => {
 
 const {applicationId} = useParams();
+const navigate = useNavigate();
 
     const { loading, data } = useQuery(FIND_APP, {
         variables: { applicationId: applicationId },
@@ -22,12 +22,13 @@ const {applicationId} = useParams();
 useEffect(() =>{
     console.log(data);
 }, [data])
+
 console.log(applicationId)
-// const navigate = useNavigate();
-//   const navigateToUpdate = () => {
-//     // :point_down:️ navigate to /preview
-//     navigate('/update');
-//   }
+
+  const navigateToUpdate = () => {
+    // :point_down:️ navigate to /preview
+    navigate(`/update/${application._id}`);
+  }
 
 
     return (
@@ -61,7 +62,7 @@ console.log(applicationId)
           {application.follow_up}
           </Card.Text></div>
 
-          <button className="spacer-btn"  role="button">Edit Application</button>
+          <button className="spacer-btn"  role="button" onClick={navigateToUpdate}>Edit Application</button>
         </Card.Body>
         <Card.Footer className="text-muted">2 days ago</Card.Footer>
       </Card>
