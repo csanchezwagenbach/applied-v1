@@ -49,7 +49,7 @@ const applicationSchema = new Schema({
 
 
 applicationSchema.virtual('daysEllapsed').get(function () {
-    return Date.now() - new Date(this.date_applied)
+    return  Math.floor((Date.now() - new Date(this.date_applied)) / (24000*3600))
 })
 
 const Application = model('Application', applicationSchema)
