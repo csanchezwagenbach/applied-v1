@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import "react-datepicker/dist/react-datepicker.css";
 //import DatePicker from "react-datepicker";
@@ -13,14 +13,36 @@ import {
   CardColumns,
   Row,
 } from "react-bootstrap";
-
-import { useMutation } from "@apollo/client";
-import { ADD_APPLICATION } from "../utils/mutations";
-import Auth from "../utils/auth";
+import {FIND_APP} from "../utils/queries"
+import { useMutation} from "@apollo/client";
+import { UPDATE_APP } from "../utils/mutations";
+// import Auth from "../utils/auth";
 
 const UpdateApp = () => {
-  const [addApplication, { error }] = useMutation(ADD_APPLICATION);
-  const [appFormData, setAppFormData] = useState(appFormData._id)
+  
+const {applicationId} = useParams();
+const navigate = useNavigate();
+
+    const { loading, data } = useQuery(FIND_APP, {
+        variables: { applicationId: applicationId },
+    });
+    const application = data?.application || {};
+useEffect(() =>{
+    console.log(data);
+}, [data])
+  const [updateApplication, { error }] = useMutation(UPDATE_APP);
+  const [appFormData, setAppFormData] = useState({
+    applicationId: application._id,
+    job_title: application.job_title,
+    company_name: application.company_name,
+    lead_source: application.lead_source,
+    description: application.description,
+    resume:application.resume,
+    cover_letter: application.cover_letter,
+    notes: application.notes,
+    follow_up: application.follow_up,
+    date_applied: application.date_applied
+  })
   useEffect(() => {
     console.log(appFormData)
   }, [appFormData])
@@ -33,20 +55,21 @@ const UpdateApp = () => {
 
     console.log(appFormData)
     try {
-      const { data } = await addApplication({
+      const { data } = await updateApplication({
         variables: { ...appFormData },
       });
       console.log(data);
+
     } catch (err) {
       console.error(err);
+         // :point_down:️ navigate to /preview
+    navigate(`/preview/${application._id}`);
     }
-  };
-
-  const navigate = useNavigate();
-  const navigateToPreview = () => {
-    // 👇️ navigate to /preview
-    navigate('/preview');
   }
+  
+
+
+
 
   const uploadResume = (e) => {
     e.preventDefault();
@@ -98,7 +121,7 @@ const UpdateApp = () => {
                 onChange={handleInputChange}
                 type="text"
                 size="lg"
-                placeholder="Job Title"
+            
               />
             </Form.Group>
 
@@ -110,7 +133,7 @@ const UpdateApp = () => {
                 onChange={handleInputChange}
                 type="text"
                 size="lg"
-                placeholder="Name of the Company"
+                
               />
             </Form.Group>
 
@@ -122,7 +145,7 @@ const UpdateApp = () => {
                 onChange={handleInputChange}
                 type="text"
                 size="lg"
-                placeholder="Date Applied"
+              
               />
             </Form.Group>
 
@@ -145,7 +168,7 @@ const UpdateApp = () => {
                 onChange={handleInputChange}
                 type="text"
                 size="lg"
-                placeholder="Where did you find the job?"
+              
               />
             </Form.Group>
 
@@ -159,7 +182,7 @@ const UpdateApp = () => {
                 onChange={handleInputChange}
                 type="text"
                 size="lg"
-                placeholder="Summarize job description."
+                
                 aria-describedby="passwordHelpBlock"
               />
             </Form.Group>
@@ -211,7 +234,7 @@ const UpdateApp = () => {
             <Form.Group as={Row} className="mt-3">
               <Col>
                 {/* <Button type="submit" variant="success" size="sm">Save Application</Button> */}
-                <button type="submit" class="spacer-btn" role="button"  onClick={navigateToPreview} >Save Application</button>
+                <button type="submit" class="spacer-btn"  >Update Application</button>
               </Col>
             </Form.Group>
           </Form>

@@ -68,7 +68,7 @@ function App() {
             />
 
             <Route 
-              path="/update" 
+              path="/update/:applicationId"
               element={<UpdateApp/>} 
             />   
 
