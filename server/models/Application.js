@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
-const resumeSchema = require('./Resume');
-const coverLetterSchema = require('./CoverLetter');
+// const resumeSchema = require('./Resume');
+// const coverLetterSchema = require('./CoverLetter');
 
 const applicationSchema = new Schema({
     job_title: {
@@ -20,8 +20,14 @@ const applicationSchema = new Schema({
         type: String,
         required: true
     },
-    resume: [resumeSchema],
-    cover_letter: [coverLetterSchema],
+    resume: {
+        type: String,
+        required: false
+    },
+    cover_letter: {
+        type: String,
+        required: false
+    },
     notes: {
         type: String,
         required: false

@@ -14,36 +14,19 @@ const typeDefs = gql`
         company_name: String!
         lead_source: String!
         description: String!
-        resume: Resume
-        cover_letter: CoverLetter
+        resume: String
+        cover_letter: String
         notes: String
         follow_up: String
         date_applied: String!
         daysEllapsed: String
     }
 
-type Resume {
-    _id: ID
-    url: String
-}
-
-type CoverLetter {
-    _id: ID
-    url: String
-}
-
 type Auth {
     token: ID!
     user: User
   }
 
-input ResumeInput {
-    url: String!
-}
-
-input CoverLetterInput {
-    url: String!
-}
 
 type Query {
     me: User
