@@ -41,4 +41,11 @@ export const DELETE_APP = gql`
       }
     }
   }
+`
+export const UPDATE_APP = gql`
+mutation updateApplication($applicationId: ID!, $jobTitle: String, $companyName: String, $leadSource: String, $description: String, $resume: String, $coverLetter: String, $notes: String, $followUp: String) {
+  updateApplication(applicationId: $applicationId, job_title: $jobTitle, company_name: $companyName, lead_source: $leadSource, description: $description, resume: $resume, cover_letter: $coverLetter, notes: $notes, follow_up: $followUp) {
+    _id
+  }
+}
 `;

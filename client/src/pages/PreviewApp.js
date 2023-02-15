@@ -1,5 +1,5 @@
 // import React, { useState, useEffect } from 'react';
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 // import {useNavigate} from 'react-router-dom';
@@ -11,23 +11,23 @@ import { useQuery } from '@apollo/client';
 import { FIND_APP } from '../utils/queries';
 
 const PreviewApp = () => {
+  //url is /update/:applicationId
+  const { applicationId } = useParams();
 
-const {applicationId} = useParams();
+  const { loading, data } = useQuery(FIND_APP, {
+    variables: { applicationId: applicationId },
+  });
 
-    const { loading, data } = useQuery(FIND_APP, {
-        variables: { applicationId: applicationId },
-    });
-
-    const application = data?.application || {};
-useEffect(() =>{
+  const application = data?.application || {};
+  useEffect(() => {
     console.log(data);
-}, [data])
-console.log(applicationId)
-// const navigate = useNavigate();
-//   const navigateToUpdate = () => {
-//     // :point_down:️ navigate to /preview
-//     navigate('/update');
-//   }
+  }, [data])
+  console.log(applicationId)
+  // const navigate = useNavigate();
+  //   const navigateToUpdate = () => {
+  //     // :point_down:️ navigate to /preview
+  //     navigate('/update');
+  //   }
 
 
     return (
@@ -40,11 +40,11 @@ console.log(applicationId)
 
           <div className="prevTitle"><span className="prevCompanyLabel">JOB TITLE</span><Card.Text>
           {application.job_title}
-          </Card.Text></div>
+        </Card.Text></div>
 
           <div className="prevLead"><span className="prevCompanyLabel">LEAD SOURCE</span><Card.Text>
           {application.lead_source}
-          </Card.Text></div>
+        </Card.Text></div>
 
           <div className="prevSummary"><span className="prevCompanyLabel">JOB DESCRIPTION</span><Card.Text>
           {application.description}
@@ -52,7 +52,7 @@ console.log(applicationId)
 
           <div className="prevNotes"><span className="prevCompanyLabel">NOTES</span><Card.Text>
           {application.notes}
-          </Card.Text></div>
+        </Card.Text></div>
 
           <div className="prevFollow"><span className="prevCompanyLabel">FOLLOW-UP EMAIL</span><Card.Text>
           {application.follow_up}
@@ -60,11 +60,11 @@ console.log(applicationId)
 
           <div className="prevDate"><span className="prevCompanyLabel">DATE APPLIED</span><Card.Text>
           {application.date_applied}
-          </Card.Text></div>
+        </Card.Text></div>
 
-          <div className="prevFollow"><Card.Text>
+        <div className="prevFollow"><Card.Text>
           {application.follow_up}
-          </Card.Text></div>
+        </Card.Text></div>
 
 
 
