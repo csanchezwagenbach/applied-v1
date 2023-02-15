@@ -167,6 +167,8 @@ h6 {
   background-color: black !important;
 }
 
+
+
 .searchbox {
   background-color: black !important;
 }
@@ -422,7 +424,9 @@ h6 {
   -webkit-animation: hoverShadowAfter 1s forwards;
           animation: hoverShadowAfter 1s forwards;
 }
-
+.limegreen {
+  color: #0aff02 !important;
+}
 
 
 .spacer-btn {
@@ -581,3 +585,4 @@ h6 {
     right: 0;
   }
 }
+

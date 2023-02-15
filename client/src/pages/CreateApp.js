@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import "react-datepicker/dist/react-datepicker.css";
 import { QUERY_ME } from '../utils/queries';
 //import DatePicker from "react-datepicker";
-8
+
 import {useNavigate} from 'react-router-dom'
 import {
   Jumbotron,
@@ -22,6 +22,7 @@ import { ADD_APPLICATION } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const CreateApp = () => {
+  const navigate = useNavigate();
   const [addApplication, { error }] = useMutation(ADD_APPLICATION);
   const [selectedDate, setSelectedDate] = useState(null)
   const [appFormData, setAppFormData] = useState({
@@ -65,10 +66,11 @@ const CreateApp = () => {
         variables: { ...appFormData },
       });
       console.log(data);
+      navigate(`/preview/${data.addApplication._id}`);
     } catch (err) {
       console.error(err);
     }
-
+    
     // setAppFormData({
     //   job_title: "",
     //   lead_source: "",
@@ -80,10 +82,10 @@ const CreateApp = () => {
     //   date_applied: "",
     // });
   };
-  const navigate = useNavigate();
-  const navigateToPreview = () => {
-    // :point_down:️ navigate to /preview
-    navigate('/preview');
+  
+
+    
+    
 
 
   const uploadResume = (e) => {
@@ -249,7 +251,7 @@ const CreateApp = () => {
             <Form.Group as={Row} className="mt-3">
               <Col>
                 {/* <Button type="submit" variant="success" size="sm">Save Application</Button> */}
-                <button type="submit" class="spacer-btn" role="button" onClick={navigateToPreview}>Save Application</button>
+                <button className="space-btn limegreen" type="submit">Save Application</button>
               </Col>
             </Form.Group>
           </Form>
@@ -260,19 +262,3 @@ const CreateApp = () => {
 };
 
 export default CreateApp;
-
-// // To set two dates to two variables
-// var date1 = new Date("06/30/2019");
-// var date2 = new Date("07/30/2019");
-
-// // To calculate the time difference of two dates
-// var Difference_In_Time = date2.getTime() - date1.getTime();
-
-// // To calculate the no. of days between two dates
-// var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-
-// //To display the final no. of days (result)
-// console.log("Total number of days between dates  <br>"
-//            + date1 + "<br> and <br>"
-//            + date2 + " is: <br> "
-//            + Difference_In_Days);

@@ -16,6 +16,7 @@ import CreateApp from './pages/CreateApp';
 import PreviewApp from './pages/PreviewApp';
 // import SearchApp from './pages/SearchApp';
 
+
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -71,8 +72,9 @@ function App() {
               element={<UpdateApp/>} 
             />    */}
 
+
             <Route 
-              path="/preview" 
+              path="/preview/:applicationId" 
               element={<PreviewApp/>} 
             /> 
 

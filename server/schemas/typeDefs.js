@@ -24,12 +24,12 @@ const typeDefs = gql`
 
 type Resume {
     _id: ID
-    url: String!
+    url: String
 }
 
 type CoverLetter {
     _id: ID
-    url: String!
+    url: String
 }
 
 type Auth {

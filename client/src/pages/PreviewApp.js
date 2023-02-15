@@ -1,27 +1,35 @@
 // import React, { useState, useEffect } from 'react';
-import React from 'react';
+import React, {useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import {useNavigate} from 'react-router-dom'
+// import {useNavigate} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
 // import { useQuery, useMutation } from '@apollo/client';
 import { useQuery } from '@apollo/client';
-import { QUERY_APP } from '../utils/queries';
+import { FIND_APP } from '../utils/queries';
 
 const PreviewApp = () => {
-    const { loading, data } = useQuery(QUERY_APP);
 
-    const userData = data?.me || {};
-}
+const {applicationId} = useParams();
 
-const navigate = useNavigate();
-  const navigateToUpdate = () => {
-    // :point_down:️ navigate to /preview
-    navigate('/update');
-  }
+    const { loading, data } = useQuery(FIND_APP, {
+        variables: { applicationId: applicationId },
+    });
 
-function PreviewApp() {
+    const application = data?.application || {};
+useEffect(() =>{
+    console.log(data);
+}, [data])
+console.log(applicationId)
+// const navigate = useNavigate();
+//   const navigateToUpdate = () => {
+//     // :point_down:️ navigate to /preview
+//     navigate('/update');
+//   }
+
+
     return (
       <Card className="prevCard" key={application._id}>
         <div className="prevHead"><Card.Header>Saved Application</Card.Header></div>
@@ -53,7 +61,7 @@ function PreviewApp() {
           {application.follow_up}
           </Card.Text></div>
 
-          <button className="spacer-Btn" type="submit" role="button" onClick={navigateToUpdate}>Edit Application</button>
+          <button className="spacer-btn"  role="button">Edit Application</button>
         </Card.Body>
         <Card.Footer className="text-muted">2 days ago</Card.Footer>
       </Card>
