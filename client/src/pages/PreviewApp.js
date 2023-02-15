@@ -29,30 +29,35 @@ console.log(applicationId)
   }
 
 
-  return (
-    <Card className="prevCard" key={application._id}>
-      <div className="prevHead"><Card.Header>Saved Application</Card.Header></div>
-      <Card.Body>
-        <div className="prevCompany"><Card.Title>{application.company_name}
-        </Card.Title></div>
+    return (
+      <Card className="prevCard" key={application._id}>
+        <div className="prevHead"><Card.Header>Saved Application</Card.Header></div>
+        <Card.Body>
+          <div className="prevCompany"><span className="prevCompanyLabel">COMPANY NAME</span>
+          <Card.Title>{application.company_name}
+            </Card.Title></div>
 
-        <div className="prevTitle"><Card.Text>
+          <div className="prevTitle"><span className="prevCompanyLabel">JOB TITLE</span><Card.Text>
           {application.job_title}
         </Card.Text></div>
 
-        <div className="prevLead"><Card.Text>
+          <div className="prevLead"><span className="prevCompanyLabel">LEAD SOURCE</span><Card.Text>
           {application.lead_source}
         </Card.Text></div>
 
-        <div className="prevSummary"><Card.Text>
+          <div className="prevSummary"><span className="prevCompanyLabel">JOB DESCRIPTION</span><Card.Text>
           {application.description}
-        </Card.Text></div>
+          </Card.Text></div>
 
-        <div className="prevNotes"><Card.Text>
+          <div className="prevNotes"><span className="prevCompanyLabel">NOTES</span><Card.Text>
           {application.notes}
         </Card.Text></div>
 
-        <div className="prevDate"><Card.Text>
+          <div className="prevFollow"><span className="prevCompanyLabel">FOLLOW-UP EMAIL</span><Card.Text>
+          {application.follow_up}
+          </Card.Text></div>
+
+          <div className="prevDate"><span className="prevCompanyLabel">DATE APPLIED</span><Card.Text>
           {application.date_applied}
         </Card.Text></div>
 
@@ -60,7 +65,7 @@ console.log(applicationId)
           {application.follow_up}
         </Card.Text></div>
 
-          <button className="spacer-btn"  role="button" onClick={navigateToUpdate}>Edit Application</button>
+          <button className="space-btn limegreen"   role="button" onClick={navigateToUpdate}>Edit Application</button>
         </Card.Body>
         <Card.Footer className="text-muted">2 days ago</Card.Footer>
       </Card>
