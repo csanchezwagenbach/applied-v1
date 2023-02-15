@@ -65,6 +65,17 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
           },
+          updateApplication: async (parent,  args , context) => {
+            if (context.user) {
+              const application = await Application.findOneAndUpdate(
+                {_id: args.applicationId},
+                { $set: args}
+              );
+
+              return application;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+          },
           deleteApplication: async (parent, { applicationId }, context) => {
             if (context.user) {
                 const application = await Application.findOneAndDelete({
