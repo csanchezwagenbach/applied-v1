@@ -6,7 +6,8 @@ const resolvers = {
     Query: {
         me: async (parent, args, context) => {
             if (context.user) {
-              return User.findOne({ _id: context.user._id }).populate('applications');
+              const dog = await User.findOne({ _id: context.user._id }).populate('applications');
+              return dog
             }
             throw new AuthenticationError('You need to be logged in!');
           },
@@ -71,7 +72,7 @@ const resolvers = {
                 {_id: args.applicationId},
                 { $set: args}
               );
-
+              console.log(application)
               return application;
             }
             throw new AuthenticationError('You need to be logged in!');

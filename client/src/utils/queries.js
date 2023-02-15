@@ -14,22 +14,16 @@ export const QUERY_ME = gql`
 }
 `;
 
-export const FIND_APP = gql
-`query application($applicationId: ID!) {
+export const FIND_APP = gql`
+query application($applicationId: ID!) {
   application(applicationId: $applicationId) {
     job_title
     _id
     company_name
     lead_source
     description
-    resume {
-      _id
-      url
-    }
-    cover_letter {
-      _id
-      url
-    }
+    resume 
+    cover_letter 
     notes
     follow_up
     date_applied

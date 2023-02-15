@@ -58,12 +58,12 @@ useEffect(() =>{
       const { data } = await updateApplication({
         variables: { ...appFormData },
       });
-      console.log(data);
-
+      console.log(data.updateApplication._id);
+      navigate(`/preview/${data.updateApplication._id}`, {reloadDocument: true});
     } catch (err) {
       console.error(err);
          // :point_down:️ navigate to /preview
-    navigate(`/preview/${application._id}`);
+  
     }
   }
   
