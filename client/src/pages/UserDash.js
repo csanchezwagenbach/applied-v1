@@ -10,6 +10,7 @@ import {
 // import { useQuery, useMutation } from '@apollo/client';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
+import { Link } from "react-router-dom";
 
 
 
@@ -62,12 +63,12 @@ const UserDash = () => {
                   <p className="small"> {application.company_name}</p>
                   <Card.Text className="jobtext">{application.lead_source}</Card.Text>
                   <Card.Text className="jobtext">{application.date_applied}</Card.Text>
-                  <Button
+                  <Link to = {`/preview/${application._id}`}><Button
                     className="btn-block btn-danger"
                     // onClick={() => handlePreviewApp(application._id)}
                   >
                     View Entire Submission
-                  </Button>
+                  </Button></Link>
                 </Card.Body>
               </Card>
             );

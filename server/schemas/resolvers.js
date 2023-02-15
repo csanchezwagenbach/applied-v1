@@ -15,8 +15,10 @@ const resolvers = {
             return Application.find(params).sort({ date_applied: -1 });
         },
         application: async (parent, { applicationId }) => {
-          console.log(applicationId)
-            return Application.findOne({ _id: applicationId });
+          console.log(applicationId, "LOOK HERE ID")
+            const appData = await Application.findOne({ _id: applicationId });
+            console.log(appData);
+            return appData
         }  
     },
 
