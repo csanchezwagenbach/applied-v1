@@ -10,11 +10,11 @@ import { useQuery } from '@apollo/client';
 import { FIND_APP } from '../utils/queries';
 
 const PreviewApp = () => {
-  //url is /update/:applicationId
-  const { applicationId } = useParams();
-
-const {applicationId} = useParams();
-const navigate = useNavigate();
+  const {applicationId} = useParams();
+  const navigate = useNavigate();
+    const { loading, data } = useQuery(FIND_APP, {
+        variables: { applicationId: applicationId },
+    });
 
   const application = data?.application || {};
   useEffect(() => {
