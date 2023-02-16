@@ -14,9 +14,11 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar className="appliednavcolor" expand='lg'>
+      {/* <Navbar className="appliednavcolor" expand='lg'> */}
+      <Navbar expand='lg'>
         <Container fluid>
-          <Navbar.Brand className="appliednavtext" as={Link} to='/'>
+          {/* <Navbar.Brand className="appliednavtext" as={Link} to='/'> */}
+          <Navbar.Brand as={Link} to='/'>
             
             <img className="complogo" alt="Applied logo"
               src={cologo}
@@ -41,9 +43,9 @@ const AppNavbar = () => {
                 Create App
               </Nav.Link>
 
-              <Nav.Link className="appliednavtext" as={Link} to='/search'>
+              {/* <Nav.Link className="appliednavtext" as={Link} to='/search'>
                 Search
-              </Nav.Link>
+              </Nav.Link> */}
 
                   <Nav.Link className="appliednavtext" onClick={Auth.logout}>Logout</Nav.Link>
                 </>
