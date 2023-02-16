@@ -16,6 +16,7 @@ const PreviewApp = () => {
   const navigate = useNavigate();
     const { loading, data } = useQuery(FIND_APP, {
         variables: { applicationId: applicationId },
+        fetchPolicy: 'network-only'
     });
 
   const application = data?.application || {};

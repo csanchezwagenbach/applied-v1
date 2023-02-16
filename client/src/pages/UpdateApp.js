@@ -30,7 +30,11 @@ const navigate = useNavigate();
 useEffect(() =>{
     console.log(data);
 }, [data])
-  const [updateApplication, { error }] = useMutation(UPDATE_APP);
+  const [updateApplication, { error }] = useMutation(UPDATE_APP, {
+    onCompleted: (data) => {      
+        navigate(`/preview/${data.updateApplication._id}`);
+    }
+  });
   const [appFormData, setAppFormData] = useState({
     applicationId: application._id,
     job_title: application.job_title,
@@ -58,8 +62,7 @@ useEffect(() =>{
       const { data } = await updateApplication({
         variables: { ...appFormData },
       });
-      console.log(data.updateApplication._id);
-      navigate(`/preview/${data.updateApplication._id}`, {reloadDocument: true});
+      console.log(data.updateApplication);
     } catch (err) {
       console.error(err);
          // :point_down:️ navigate to /preview
@@ -110,6 +113,7 @@ useEffect(() =>{
     <>
       <Jumbotron fluid className="text-light appliedthemecolor">
         <Container>
+          
           <span class="appinfo">Edit Application Information</span>
           <Form onSubmit={handleFormSubmit}>
 
@@ -250,10 +254,10 @@ useEffect(() =>{
             <Form.Group as={Row} className="mt-3">
               <Col>
                 {/* <Button type="submit" variant="success" size="sm">Save Application</Button> */}
-                <button type="submit" class="spacer-btn"  >Update Application</button>
               </Col>
             </Form.Group>
           </Form>
+          <button type="submit" class="spacer-btn"  onClick={handleFormSubmit}>Update Application</button>
         </Container>
       </Jumbotron>
     </>
