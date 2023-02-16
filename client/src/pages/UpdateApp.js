@@ -113,8 +113,7 @@ useEffect(() =>{
     <>
       <Jumbotron fluid className="text-light appliedthemecolor">
         <Container>
-          <span class="appinfo">Job Application Information</span>
-          <Form>
+          
           <span class="appinfo">Edit Application Information</span>
           <Form onSubmit={handleFormSubmit}>
 
