@@ -1,8 +1,10 @@
 import React, {useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import docpic from '../assets/document.png';
+
 
 
 // import { useQuery, useMutation } from '@apollo/client';
@@ -28,6 +30,9 @@ console.log(applicationId)
     navigate(`/update/${application._id}`);
   }
 
+  const handleDocument = (url) => {
+    window.open(url);
+  }
 
     return (
       <Card className="prevCard" key={application._id}>
@@ -64,10 +69,25 @@ console.log(applicationId)
         <div className="prevFollow"><Card.Text>
           {application.follow_up}
         </Card.Text></div>
+        
+        <Card.Text className="text-muted prevDays">Days gone by since applied: {application.daysEllapsed}</Card.Text>
+
+        <div className="documents">
+            
+            <div className="docicon" ><Link target="_blank" to={application.resume}><img alt="doc icon"
+              src={docpic}
+            /></Link> Resume Used</div>
+
+            <div className="docicon"><Link target="_blank" to={application.cover_letter}><img alt="doc icon"
+              src={docpic}
+            /></Link> COVER LETTER USED</div>
+            </div>
 
           <button className="space-btn limegreen"   role="button" onClick={navigateToUpdate}>Edit Application</button>
+
+
         </Card.Body>
-        <Card.Footer className="text-muted">2 days ago</Card.Footer>
+        <Card.Footer></Card.Footer>
       </Card>
       
     );

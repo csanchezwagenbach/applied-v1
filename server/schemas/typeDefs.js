@@ -37,7 +37,7 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addApplication(job_title: String!, company_name: String!, lead_source: String!, description: String!, date_applied: String!): Application
+    addApplication(job_title: String!, resume: String, cover_letter: String, company_name: String!, lead_source: String!, description: String!, date_applied: String!): Application
     updateApplication(applicationId: ID!, job_title: String, company_name: String, lead_source: String, description: String, resume: String, cover_letter: String, notes: String, follow_up: String): Application
     deleteApplication(_id: ID!): Application
 }

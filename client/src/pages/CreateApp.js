@@ -213,7 +213,7 @@ const CreateApp = () => {
             </Form.Group>
 
             <Form.Text id="passwordHelpBlock" muted>
-              We suggest adding any follow up emails received.
+              We suggest adding your post interview follow up email.
             </Form.Text><br></br>
 
 
@@ -233,25 +233,24 @@ const CreateApp = () => {
             </Form.Group>
 
             <Form.Text id="passwordHelpBlock" muted>
-              Add any notes such as names, interview details, follow ups, recruiters you spoke to
-              etc...
+              Add any notes such as names, interview details, follow ups, recruiters you spoke to etc...
             </Form.Text><br></br>
 
 
             <Row>
-              <Col></Col>
+              <Col>Upload your documents here:</Col>
 
 
               <Col class="cntrbtns">
                 {/* <Form.Label>Upload Resume</Form.Label> */}
                 {/* <button id="upload_widget" class="button-85" role="button"  onClick={uploadResume}>Upload Resume</button> */}
-                <button id="upload_widget" class="space-btn" onClick={uploadResume}>Upload Resume</button>
+                <button id="upload_widget" class="space-btn" onClick={uploadResume}>Resume</button>
               </Col>
 
               <Col class="cntrbtns">
                 {/* <Form.Label>Upload CV/Cover Letter</Form.Label> */}
                 {/* <button id="upload_widget" class="button-85" role="button" onClick={uploadCoverLetter}>Upload Cover Letter </button> */}
-                <button id="upload_widget" class="space-btn" onClick={uploadCoverLetter}>Upload Cover</button>
+                <button id="upload_widget" class="space-btn" onClick={uploadCoverLetter}>Cover Letter</button>
               </Col>
             </Row><br></br>
 

@@ -46,7 +46,7 @@ const resolvers = {
       
             return { token, user };
           },
-          addApplication: async (parent, { job_title, company_name, lead_source, description, date_applied }, context) => {
+          addApplication: async (parent, { job_title, resume, cover_letter, company_name, lead_source, description, date_applied }, context) => {
             console.log(context.user)
             if (context.user) {
                 const application = await Application.create({
@@ -54,7 +54,9 @@ const resolvers = {
                     company_name,
                     lead_source,
                     description,
-                    date_applied
+                    date_applied,
+                    resume,
+                    cover_letter
                 });
 
                 await User.findOneAndUpdate(
