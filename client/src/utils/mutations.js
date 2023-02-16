@@ -22,8 +22,8 @@ export const ADD_USER = gql`
 }
 `;
 export const ADD_APPLICATION = gql`
-mutation addApplication($job_title: String!, $company_name: String!, $lead_source: String!, $description: String!, $date_applied: String!) {
-  addApplication(job_title: $job_title, company_name: $company_name, lead_source: $lead_source, description: $description, date_applied: $date_applied) {
+mutation addApplication($resume: String, $cover_letter: String, $job_title: String!, $company_name: String!, $lead_source: String!, $description: String!, $date_applied: String!) {
+  addApplication(resume: $resume, cover_letter: $cover_letter, job_title: $job_title, company_name: $company_name, lead_source: $lead_source, description: $description, date_applied: $date_applied) {
     job_title
     _id
     company_name
