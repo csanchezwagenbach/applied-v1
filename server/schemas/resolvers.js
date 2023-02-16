@@ -68,12 +68,13 @@ const resolvers = {
           },
           updateApplication: async (parent,  args , context) => {
             if (context.user) {
-              const application = await Application.findOneAndUpdate(
+              return  Application.findOneAndUpdate(
                 {_id: args.applicationId},
-                { $set: args}
+                { $set: args},
+                { new: true }
               );
-              console.log(application)
-              return application;
+              // console.log(application)
+              // return application;
             }
             throw new AuthenticationError('You need to be logged in!');
           },
