@@ -80,7 +80,7 @@ export const UPDATE_APP = gql`
     $cover_letter: String
     $notes: String
     $follow_up: String
-    $date_applied:String
+    $date_applied:String!
   ) {
     updateApplication(
       applicationId: $applicationId

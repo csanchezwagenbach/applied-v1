@@ -78,16 +78,16 @@ const PreviewApp = () => {
 
         <div className="documents">
           <div className="docpicbtn">
-            <Link target="_blank" to={application.resume}>
+            
               <img alt="doc icon" src={docpic} />
-              RESUME USED
+              &nbsp;&nbsp;<Link target="_blank" to={application.resume}>RESUME USED
             </Link>
-          </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
           <div className="docpicbtn">
-            <Link target="_blank" to={application.cover_letter}>
+            
               <img alt="doc icon" src={docpic} />
-              COVER LETTER USED
+              &nbsp;&nbsp;<Link target="_blank" to={application.cover_letter}>COVER LETTER USED
             </Link>
           </div>
         </div>
