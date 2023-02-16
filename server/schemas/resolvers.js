@@ -57,8 +57,7 @@ const resolvers = {
         description,
         date_applied,
         notes,
-        follow_up,
-        date_applied
+        follow_up
       },
       context
     ) => {
@@ -73,8 +72,8 @@ const resolvers = {
           resume,
           cover_letter,
           notes,
-          follow_up,
-          date_applied
+          follow_up
+  
         });
 
         await User.findOneAndUpdate(

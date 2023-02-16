@@ -77,18 +77,18 @@ const PreviewApp = () => {
         </Card.Text>
 
         <div className="documents">
-          <div className="docicon">
+          <div className="docpicbtn">
             <Link target="_blank" to={application.resume}>
               <img alt="doc icon" src={docpic} />
-            </Link>{" "}
-            Resume Used
+              RESUME USED
+            </Link>
           </div>
 
-          <div className="docicon">
+          <div className="docpicbtn">
             <Link target="_blank" to={application.cover_letter}>
               <img alt="doc icon" src={docpic} />
-            </Link>{" "}
-            COVER LETTER USED
+              COVER LETTER USED
+            </Link>
           </div>
         </div>
 

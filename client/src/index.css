@@ -436,6 +436,12 @@ h6 {
   }
 }
 
+.docpicbtn:hover {
+  color: #025bff;
+  text-decoration: none;
+  cursor: pointer !important;
+}
+
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
