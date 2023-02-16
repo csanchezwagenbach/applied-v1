@@ -115,6 +115,8 @@ useEffect(() =>{
         <Container>
           <span class="appinfo">Job Application Information</span>
           <Form>
+          <span class="appinfo">Edit Application Information</span>
+          <Form onSubmit={handleFormSubmit}>
 
             <Form.Group as={Row}>
               <Form.Label>Job Title</Form.Label>
@@ -206,19 +208,35 @@ useEffect(() =>{
                 onChange={handleInputChange}
                 type="text"
                 size="lg"
-                placeholder="Important things to remember."
+                
                 aria-describedby="passwordHelpBlock"
               />
             </Form.Group>
 
+            
             <Form.Text id="passwordHelpBlock" muted>
-              Add any notes such as names, interview details, follow ups, recruiters you spoke to
-              etc...
+              Add any notes such as names, interview details, follow ups, recruiters you spoke to etc...
             </Form.Text><br></br>
-
+            
+            <Form.Group as={Row}>
+              <Form.Label>Follow Up</Form.Label>
+              <Form.Control id="transp"
+                as="textarea"
+                style={{ height: '150px' }}
+                name="follow_up"
+                value={appFormData.follow_up}
+                onChange={handleInputChange}
+                type="text"
+                size="lg"
+                aria-describedby="passwordHelpBlock"
+              />
+            </Form.Group>
+            <Form.Text id="passwordHelpBlock" muted>
+              Add your post interview follow up email.
+            </Form.Text><br></br><br></br>
 
             <Row>
-              <Col></Col>
+              <Col>Upload or Overwrite <br></br>your documents here:</Col>
 
 
               <Col class="cntrbtns">

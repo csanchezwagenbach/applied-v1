@@ -18,7 +18,7 @@ const AppNavbar = () => {
         <Container fluid>
           <Navbar.Brand className="appliednavtext" as={Link} to='/'>
             
-            <img alt="Applied logo"
+            <img className="complogo" alt="Applied logo"
               src={cologo}
             />
 

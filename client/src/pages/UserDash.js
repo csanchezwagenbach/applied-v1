@@ -11,6 +11,8 @@ import {
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 import { Link } from "react-router-dom";
+import green from '../assets/greenlight.png';
+import red from '../assets/redlight.png';
 
 
 
@@ -26,8 +28,13 @@ const UserDash = () => {
   useEffect(()=> {
     console.log(userData)
   }, [userData])
-  // create function that accepts the book's mongo _id value as param and deletes the book from the database
+
   
+
+
+
+
+
   if (loading) {
     return <h2>LOADING...</h2>;
   }
@@ -42,7 +49,7 @@ const UserDash = () => {
       <Container className="containercolor">
         <span className="viewingsaved">
           {userData.applications?.length
-            ? `Viewing ${userData.applications.length} saved ${
+            ? `Viewing ${userData.applications.length} Saved ${
                 userData.applications.length === 1 ? 'Application' : 'Job Applications'
               }:`
             : <p><span className="quote">You have no saved applications!</span><br></br><span className="quotes">'Remember, you miss 100% of the shots you don't take.'</span><br></br><span className="quotess">— Michael Scott, Dunder Mifflin; actually Wayne Gretzky</span></p>}
@@ -50,7 +57,7 @@ const UserDash = () => {
         <CardColumns>
           {userData.applications?.map((application) => {
             return (
-              <Card className="thecards" key={application._id} style={{ width: '18rem', marginTop: '40px' }} border="light">
+              <Card className="thecards" key={application._id} border="light">
                  
                   <Card.Img className="cardlogo"
                   alt="Applied logo"
@@ -63,12 +70,29 @@ const UserDash = () => {
                   <p className="small"> {application.company_name}</p>
                   <Card.Text className="jobtext">{application.lead_source}</Card.Text>
                   <Card.Text className="jobtext">{application.date_applied}</Card.Text>
-                  <Link to = {`/preview/${application._id}`}><Button
-                    className="btn-block btn-danger"
-                    // onClick={() => handlePreviewApp(application._id)}
-                  >
-                    View Entire Submission
-                  </Button></Link>
+                  <Card.Text className="dayselap">Days Since Applied: {application.daysEllapsed}</Card.Text>
+                  {/* <Link to = {`/preview/${application._id}`}><Button variant="outline-danger" size="sm"
+                    className="btn-block">View
+                  </Button></Link> */}
+<div className="xlite">
+                  <Link to = {`/preview/${application._id}`}>
+                    
+                  <button className="noselect">VIEW
+                  </button>
+                  
+                  </Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                  {/* <input type="checkbox" id="switch" /><label for="switch"></label> */}
+                  
+
+                  {/* <img className="status-light" alt="red light"
+              src={red}
+            /> */}
+
+
+
+                  </div>
+
                 </Card.Body>
               </Card>
             );

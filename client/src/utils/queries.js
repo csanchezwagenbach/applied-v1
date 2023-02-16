@@ -9,6 +9,7 @@ export const QUERY_ME = gql`
       company_name
       lead_source
       date_applied
+      daysEllapsed
     }
   }
 }

@@ -24,6 +24,10 @@ h6 {
   font-style: italic;
 }
 
+
+
+
+
 .appliedthemecolor {
   background-color: rgba(4, 0, 1, 0.947);
 }
@@ -32,6 +36,7 @@ h6 {
   font-family: 'Exo', sans-serif;
   font-weight: 300;
   font-size: 40px;
+  color: #02d9ff;
 }
 
 .quote {
@@ -72,6 +77,8 @@ h6 {
   font-weight: 700;
   font-size: 20px;
   text-align: center;
+  margin-bottom: -30px;
+  margin-top: 30px;
 }
 
 .prevCompany {
@@ -120,7 +127,7 @@ color: aqua;
   font-family: 'Exo', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  margin-bottom: 40px;
+  margin-bottom: -10px;
 }
 
 .prevFollow {
@@ -138,6 +145,10 @@ color: aqua;
  margin-left: 60px;
 }
 
+.prevDays {
+  margin-bottom: 40px;
+  
+}
 
 
 /* .cntrbtns {
@@ -175,6 +186,8 @@ color: aqua;
 
 .thecards {
   background-color: black !important;
+  width: 18rem;
+  margin-top: 40px;
 }
 
 
@@ -184,12 +197,18 @@ color: aqua;
 }
 
 .jobtitle {
-  color: azure !important;
+  color:#02d9ff !important;
 }
 
 .jobtext {
   color: azure !important;
   font-size: 12px !important;
+}
+
+.dayselap {
+  color: azure !important;
+  font-size: 12px !important;
+  color: darkorange !important;
 }
 
 .small {
@@ -596,3 +615,145 @@ color: aqua;
   }
 }
 
+
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+		-webkit-tap-highlight-color: transparent;
+}
+
+.noselect {
+	width: 100px;
+	height: 25px;
+	cursor: pointer;
+	border: none;
+	font-family: 'Exo', sans-serif;
+  font-weight: 700;
+	color: rgba(245, 3, 3, 0.5);
+	font-size: 12px;
+	border-radius: 4px;
+	box-shadow: inset 0px 3px 5px rgba(255,255,255,0.5), 0px 0px 10px rgba(0,0,0,0.15);
+	background: rgb(2,0,36);
+background: linear-gradient(45deg, rgba(2,0,36,0) 5%, rgba(255,255,255,.5) 6%, rgba(255,255,255,0) 9%, rgba(255,255,255,.5) 10%, rgba(255,255,255,0) 17%, rgba(255,255,255,.5) 19%, rgba(255,255,255,0) 21%);
+	background-size: 150%;
+	background-position: right;
+	transition: 1s;
+}
+
+.noselect:hover {
+	background-position: left;
+	color: white;
+	box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
+}
+
+.noselect:focus {
+	outline: none;
+}
+
+
+
+
+
+
+
+/* input[type=checkbox]{
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -125px;
+  width: 25px;
+  height: 25px;
+  background: rgb(129, 1, 1);
+  display: block;
+  border-radius: 50px;
+  position: relative;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 22.5px;
+  height: 22.5px;
+  background: #050505;
+  border-radius: 22.5px;
+  transition: 0.2s;
+}
+
+input:checked + label {
+  background: #04e804;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+} */
+
+/* label:active:after {
+  width: 50px;
+} */
+
+/* // centering
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+
+/* .xlite {
+  display:flex !important;
+  flex-direction: row !important;
+  align-content: space-around !important;
+
+} */
+
+
+.documents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.docicon {
+  margin-right: 80px;
+  margin-bottom: 50px;
+  
+}
+
+.jumbotron {
+  margin-bottom: -20px !important;
+}
+
+.status-light {
+  width: 10%;
+  margin-left: 40%;
+  margin-bottom: -10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .thecards {
+    display: flex;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    /* justify-content: center; */
+    float: none;
+    width: 90% !important;
+  }
+
+  .complogo {
+    width: 80%;
+  }
+  
+}
