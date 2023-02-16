@@ -111,7 +111,7 @@ useEffect(() =>{
 
   return (
     <>
-      <Jumbotron fluid className="text-light appliedthemecolor">
+      <Jumbotron fluid className="text-light appliedthemecolor mx-2">
         <Container>
           
           <span class="appinfo">Edit Application Information</span>
