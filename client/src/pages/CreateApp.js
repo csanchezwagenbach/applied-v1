@@ -1,43 +1,28 @@
 import React, { useState, useEffect } from "react";
-import {useNavigate} from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import "react-datepicker/dist/react-datepicker.css";
-//import DatePicker from "react-datepicker";
+import { useNavigate } from "react-router-dom";
 
-import {
-  Jumbotron,
-  Container,
-  Col,
-  Form,
-  Button,
-  Card,
-  CardColumns,
-  Row,
-} from "react-bootstrap";
+import { Jumbotron, Container, Col, Form, Row } from "react-bootstrap";
 
 import { useMutation } from "@apollo/client";
 import { ADD_APPLICATION } from "../utils/mutations";
 
-import Auth from "../utils/auth";
-
 const CreateApp = () => {
   const navigate = useNavigate();
   const [addApplication, { error }] = useMutation(ADD_APPLICATION);
-  const [selectedDate, setSelectedDate] = useState(null)
   const [appFormData, setAppFormData] = useState({
-    job_title: '',
-    company_name: '',
-    lead_source: '',
-    description: '',
-    // resume: '',
-    // cover_letter: '',
-    // notes: '',
-    // follow_up: '',
-    date_applied: ''
-  })
+    job_title: "",
+    company_name: "",
+    lead_source: "",
+    description: "",
+    resume: '',
+    cover_letter: '',
+    notes: '',
+    follow_up: '',
+    date_applied: "",
+  });
   useEffect(() => {
-    console.log(appFormData)
-  }, [appFormData])
+    console.log(appFormData);
+  }, [appFormData]);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setAppFormData({ ...appFormData, [name]: value });
@@ -45,21 +30,7 @@ const CreateApp = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     // create function that accepts the book's mongo _id value as param and deletes the book from the database
-
-    // get token
-    // const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    // if (!token) {
-    //   return false;
-    // }
-
-    // check if form has everything (as per react-bootstrap docs)
-    // const form = event.currentTarget;
-    // if (form.checkValidity() === false) {
-    //   event.preventDefault();
-    //   event.stopPropagation();
-    // }
-    console.log(appFormData)
+    console.log(appFormData);
     try {
       const { data } = await addApplication({
         variables: { ...appFormData },
@@ -70,11 +41,6 @@ const CreateApp = () => {
       console.error(err);
     }
   };
-  
-
-    
-    
-
 
   const uploadResume = (e) => {
     e.preventDefault();
@@ -92,6 +58,7 @@ const CreateApp = () => {
     );
     myWidget.open();
   };
+
   const uploadCoverLetter = (e) => {
     e.preventDefault();
     var myWidget = window.cloudinary.createUploadWidget(
@@ -109,18 +76,16 @@ const CreateApp = () => {
     myWidget.open();
   };
 
-  // create function to handle saving a application to our database
-
   return (
     <>
       <Jumbotron fluid className="text-light appliedthemecolor mx-2">
         <Container>
           <span class="appinfo">Job Application Information</span>
           <Form onSubmit={handleFormSubmit}>
-
             <Form.Group as={Row}>
               <Form.Label>Job Title</Form.Label>
-              <Form.Control id="transp"
+              <Form.Control
+                id="transp"
                 name="job_title"
                 value={appFormData.job_title}
                 onChange={handleInputChange}
@@ -132,7 +97,8 @@ const CreateApp = () => {
 
             <Form.Group as={Row}>
               <Form.Label>Company Name</Form.Label>
-              <Form.Control id="transp"
+              <Form.Control
+                id="transp"
                 name="company_name"
                 value={appFormData.company_name}
                 onChange={handleInputChange}
@@ -144,7 +110,8 @@ const CreateApp = () => {
 
             <Form.Group as={Row}>
               <Form.Label>Date Applied</Form.Label>
-              <Form.Control id="transp"
+              <Form.Control
+                id="transp"
                 name="date_applied"
                 value={appFormData.date_applied}
                 onChange={handleInputChange}
@@ -154,20 +121,10 @@ const CreateApp = () => {
               />
             </Form.Group>
 
-            {/* <Form.Group as={Row}>
-              <Form.Label>Date Applied</Form.Label>
-                <DatePicker
-                name="date_applied"
-                value={appFormData.date_applied}
-                  selected={selectedDate}
-                  onChange={(date) => setSelectedDate(date)}
-                  dateFormat="MM/dd/yy"
-                />
-            </Form.Group> */}
-
             <Form.Group as={Row}>
               <Form.Label>Job Lead</Form.Label>
-              <Form.Control id="transp"
+              <Form.Control
+                id="transp"
                 name="lead_source"
                 value={appFormData.lead_source}
                 onChange={handleInputChange}
@@ -179,9 +136,10 @@ const CreateApp = () => {
 
             <Form.Group as={Row}>
               <Form.Label>Job Description</Form.Label>
-              <Form.Control id="transp"
+              <Form.Control
+                id="transp"
                 as="textarea"
-                style={{ height: '150px' }}
+                style={{ height: "150px" }}
                 name="description"
                 value={appFormData.description}
                 onChange={handleInputChange}
@@ -191,17 +149,19 @@ const CreateApp = () => {
                 aria-describedby="passwordHelpBlock"
               />
 
-            <Form.Text id="passwordHelpBlock" muted>
-              We suggest copying the job description from site that job was
-              posted, since they tend to get taken down.
-            </Form.Text><br></br>
+              <Form.Text id="passwordHelpBlock" muted>
+                We suggest copying the job description from site that job was
+                posted, since they tend to get taken down.
+              </Form.Text>
+              <br></br>
             </Form.Group>
 
             <Form.Group as={Row}>
               <Form.Label>Follow Up</Form.Label>
-              <Form.Control id="transp"
+              <Form.Control
+                id="transp"
                 as="textarea"
-                style={{ height: '150px' }}
+                style={{ height: "150px" }}
                 name="follow_up"
                 value={appFormData.follow_up}
                 onChange={handleInputChange}
@@ -214,14 +174,15 @@ const CreateApp = () => {
 
             <Form.Text id="passwordHelpBlock" muted>
               We suggest adding your post interview follow up email.
-            </Form.Text><br></br>
-
+            </Form.Text>
+            <br></br>
 
             <Form.Group as={Row}>
               <Form.Label>Notes</Form.Label>
-              <Form.Control id="transp"
+              <Form.Control
+                id="transp"
                 as="textarea"
-                style={{ height: '150px' }}
+                style={{ height: "150px" }}
                 name="notes"
                 value={appFormData.notes}
                 onChange={handleInputChange}
@@ -233,31 +194,41 @@ const CreateApp = () => {
             </Form.Group>
 
             <Form.Text id="passwordHelpBlock" muted>
-              Add any notes such as names, interview details, follow ups, recruiters you spoke to etc...
-            </Form.Text><br></br>
-
+              Add any notes such as names, interview details, follow ups,
+              recruiters you spoke to etc...
+            </Form.Text>
+            <br></br>
 
             <Row>
               <Col>Upload your documents here:</Col>
 
-
               <Col class="cntrbtns">
-                {/* <Form.Label>Upload Resume</Form.Label> */}
-                {/* <button id="upload_widget" class="button-85" role="button"  onClick={uploadResume}>Upload Resume</button> */}
-                <button id="upload_widget" class="space-btn" onClick={uploadResume}>Resume</button>
+                <button
+                  id="upload_widget"
+                  class="space-btn"
+                  onClick={uploadResume}
+                >
+                  Resume
+                </button>
               </Col>
 
               <Col class="cntrbtns">
-                {/* <Form.Label>Upload CV/Cover Letter</Form.Label> */}
-                {/* <button id="upload_widget" class="button-85" role="button" onClick={uploadCoverLetter}>Upload Cover Letter </button> */}
-                <button id="upload_widget" class="space-btn" onClick={uploadCoverLetter}>Cover Letter</button>
+                <button
+                  id="upload_widget"
+                  class="space-btn"
+                  onClick={uploadCoverLetter}
+                >
+                  Cover Letter
+                </button>
               </Col>
-            </Row><br></br>
+            </Row>
+            <br></br>
 
             <Form.Group as={Row} className="mt-3">
               <Col>
-                {/* <Button type="submit" variant="success" size="sm">Save Application</Button> */}
-                <button className="space-btn limegreen" type="submit">Save Application</button>
+                <button className="space-btn limegreen" type="submit">
+                  Save Application
+                </button>
               </Col>
             </Form.Group>
           </Form>
