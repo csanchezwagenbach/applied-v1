@@ -171,10 +171,10 @@ color: aqua;
   color: white !important;
 }
 
-.appliednavcolor {
+/* .appliednavcolor {
   background-color: rgba(4, 0, 1, 0.947);
   color: white !important;
-}
+} */
 
 .appliednavtext {
   color: white !important;
@@ -743,17 +743,40 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  .thecards {
+  /* .thecards {
     display: flex;
     flex-wrap: wrap !important;
     justify-content: space-between !important;
-    /* justify-content: center; */
+    
     float: none;
     width: 90% !important;
-  }
+    min-width: 13rem !important;
+    flex-direction: column !important;
+    margin-right: 10px !important;
+  } */
 
   .complogo {
     width: 80%;
+  }
+
+  .Nav .Navbar .Container {
+    display: flex !important;
+    flex: wrap !important;
+    flex-direction: row !important;
+  }
+
+  .navbar-toggler .collapsed {
+    color: white !important;
+  }
+
+  .button {
+    color: azure !important;
+    background-color: azure !important;
+  }
+
+  .navbar-toggler-icon {
+    color: aliceblue !important;
+    background-color: aliceblue !important;
   }
   
 }
