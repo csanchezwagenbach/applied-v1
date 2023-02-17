@@ -66,15 +66,11 @@ const PreviewApp = () => {
         <div className="prevDate">
           <span className="prevCompanyLabel">DATE APPLIED</span>
           <Card.Text>{application.date_applied}</Card.Text>
-        </div>
+        </div><br></br><br></br>
 
-        <div className="prevFollow">
-          <Card.Text>{application.follow_up}</Card.Text>
-        </div>
+       
 
-        <Card.Text className="text-muted prevDays">
-          Days gone by since applied: {application.daysEllapsed}
-        </Card.Text>
+       
 
         <div className="documents">
           <div className="docpicbtn">
@@ -90,7 +86,7 @@ const PreviewApp = () => {
               &nbsp;&nbsp;<Link target="_blank" to={application.cover_letter}>COVER LETTER USED
             </Link>
           </div>
-        </div>
+        </div><br></br>
 
         <button
           className="space-btn limegreen"

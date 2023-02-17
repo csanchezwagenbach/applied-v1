@@ -113,6 +113,7 @@ h6 {
   font-weight: 400;
   font-size: 14px;
   margin-bottom: 40px;
+  white-space: pre-wrap;
 }
 
 .prevDate {
@@ -129,6 +130,7 @@ h6 {
   font-size: 14px;
   margin-top: 20px;
   margin-bottom: 20px;
+  white-space: pre-wrap;
 }
 
 .prevCard {
